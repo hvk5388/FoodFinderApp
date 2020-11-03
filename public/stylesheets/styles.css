@@ -1,11 +1,18 @@
 head {
-
+    text-align: center;
 }
 
 body {
-    
+    text-align: center;
 }
 
 table {
+    text-align: center;
+}
+
+#heart {
+    width: 5%;
+    height: 5%; 
+    
 
 }
