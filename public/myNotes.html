@@ -2,24 +2,13 @@
 
 <head>
   <title>My notes</title>
-  <link rel="notesStylesheet" href="\stylesheets\notesStylesheet.css">
+  <link href="stylesheets/notesStyles.css" rel="styles">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-    .topbar{
-        margin-top: -10px;
-        margin-left: -10px;
-        font-size: 30px;
-        position: fixed;
-        z-index: 1;
-        width: 100%;
-        text-align: center;
-        background-color: lightcoral;
-        font-family: 'Montserrat', sans-serif;
-    }
-
     .restaurants{
         margin-left: -10px;
-        padding-top: 150px;
+        padding-top: 50px;
         position: absolute;
         width: 100%;
         text-align: center;
@@ -37,7 +26,7 @@
         display: inline-block;
         filter: grayscale(100%);
     }
-     
+    
     #buttons{
         display: inline-block;
         background-color: white;
@@ -49,21 +38,94 @@
         width: 5%;
         filter: grayscale(100%);
     }
-</style>
+    /* Header name and menu */
+    #headerTitle {
+        text-align: center;
+    }
+    header {
+        background-color: lightcoral;
+        display: inline-block;
+        width: 100%;
+        height: 10%;
+        position: fixed;
+        margin: 0px;
+        padding: 0px;
+        height: 80px;
+        top: 0px;
+        z-index: 2;
+
+        margin-top: -10px;
+        margin-left: -10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #menuBtn {
+        position: fixed;
+        margin: -10px;
+        padding: 0px;
+        text-align: left;
+        cursor: pointer;
+        top: 0px;
+        left: 5px;
+    }
+
+    #menuIcon {
+        font-size: 40px;
+        padding: 20px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: -5px;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        z-index: 1;
+        cursor: default; 
+        font-size: 20px;
+    }
+
+    a {
+        color: grey;
+        text-decoration: none; /* no underline */
+        cursor: pointer;
+    }
+    
+    #menuBtn:hover .dropdown-content {
+        display: block;
+    }
+
+    /* td {
+        text-align: center;
+    } */
+  </style>
 </head>
 
-<body>
-    <div class="topbar">
-        <h1>My Notes</h1>
-    </div>
+<header>
+    <h1 id="headerTitle">Notes</h1>
+    <div id="menuBtn">
+        <span id="menuIcon" class="material-icons">menu</span>
+        <div class="dropdown-content">
+            <a href="index.html">Home</a><hr>
+            <a href="favorites.html">Favorites</a><hr>
+            <a href="restaurants.html">Restaurants</a>
+        </div>       
+    </div>  
+</header>
 
+<body>
     <div class="restaurants">
-        <h2>Restaurant 1</h2>
+        <h2>Snap Pizza</h2>
         <h3>Description</h3>
         <p>This restaurant serves pizza.</p>
         <h3>Ratings</h3>
         <p>Food</p>
-        <div>
+        <div> <!--will update colors in future project, stars can be clicked to change rating-->
             <img src="images/star1.png" alt="star" id="stars">
             <img src="images/star1.png" alt="star" id="stars">
             <img src="images/star1.png" alt="star" id="stars">
@@ -93,7 +155,7 @@
             <p id="buttons">Send note</p>
             <p id="buttons">Post as review</p>
         </div>
-        <h2>Restaurant 2</h2>
+        <h2>John's Shanghai</h2>
         <h3>Description</h3>
         <p>This restaurant serves Chinese food.</p>
         <h3>Ratings</h3>
@@ -128,7 +190,7 @@
             <p id="buttons">Send note</p>
             <p id="buttons">Post as review</p>
         </div>
-        <h2>Restaurant 3</h2>
+        <h2>Olive Garden</h2>
         <h3>Description</h3>
         <p>This restaurant serves Italian food.</p>
         <h3>Ratings</h3>
@@ -149,6 +211,15 @@
             <img src="images/star1.png" alt="star" id="stars">
         </div>
         <p>Price</p>
+        <!-- <table style="width:100%">
+            <tr>
+              <td><img src="images/dollar.png" alt="dollar" id="dollar" height="10%" width="40%"></td>
+              <td><img src="images/dollar.png" alt="dollar" id="dollar" height="10%" width="40%"></td>
+              <td><img src="images/dollar.png" alt="dollar" id="dollar" height="10%" width="40%"></td>
+              <td><img src="images/dollar.png" alt="dollar" id="dollar" height="10%" width="40%"></td>
+              <td><img src="images/dollar.png" alt="dollar" id="dollar" height="10%" width="40%"></td>
+            </tr>
+          </table> -->
         <div>
             <img src="images/dollar.png" alt="dollar" id="dollar">
             <img src="images/dollar.png" alt="dollar" id="dollar">
