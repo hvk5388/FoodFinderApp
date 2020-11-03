@@ -2,19 +2,168 @@
 
 <head>
   <title>My notes</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="notesStylesheet" href="\stylesheets\notesStylesheet.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .topbar{
+        margin-top: -10px;
+        margin-left: -10px;
+        font-size: 30px;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+        background-color: lightcoral;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .restaurants{
+        margin-left: -10px;
+        padding-top: 150px;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        background-color: lightgray;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    img{
+        width: 40%;
+        border-radius: 15px;
+    }
+
+    #stars{
+        width: 5%;
+        display: inline-block;
+        filter: grayscale(100%);
+    }
+     
+    #buttons{
+        display: inline-block;
+        background-color: white;
+        border-radius: 15px;
+        padding: 5px;
+    }
+
+    #dollar{
+        width: 5%;
+        filter: grayscale(100%);
+    }
+</style>
 </head>
 
-<table style="width:100%">
-    <tr>
-      <th>Restaurant 1</th>
-    </tr>
-    <tr>
-      <td>Restaurant 2</td>
-    </tr>
-    <tr>
-      <td>Restaurant 3</td>
-    </tr>
-  </table>
+<body>
+    <div class="topbar">
+        <h1>My Notes</h1>
+    </div>
+
+    <div class="restaurants">
+        <h2>Restaurant 1</h2>
+        <h3>Description</h3>
+        <p>This restaurant serves pizza.</p>
+        <h3>Ratings</h3>
+        <p>Food</p>
+        <div>
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+        </div>
+        <p>Service</p>
+        <div>
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+        </div>
+        <p>Price</p>
+        <div>
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+        </div>
+        <h3>Photo</h3>
+        <img src="images/pizza-shop.jpg" alt="Pizza Shop">
+        <div>        
+            <p id="buttons">Save changes</p>
+            <p id="buttons">Send note</p>
+            <p id="buttons">Post as review</p>
+        </div>
+        <h2>Restaurant 2</h2>
+        <h3>Description</h3>
+        <p>This restaurant serves Chinese food.</p>
+        <h3>Ratings</h3>
+        <p>Food</p>
+        <div>
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+        </div>
+        <p>Service</p>
+        <div>
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+        </div>
+        <p>Price</p>
+        <div>
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+        </div>
+        <h3>Photo</h3>
+        <img src="images/chinese-food.jpg" alt="Chinese Food">
+        <div>        
+            <p id="buttons">Save changes</p>
+            <p id="buttons">Send note</p>
+            <p id="buttons">Post as review</p>
+        </div>
+        <h2>Restaurant 3</h2>
+        <h3>Description</h3>
+        <p>This restaurant serves Italian food.</p>
+        <h3>Ratings</h3>
+        <p>Food</p>
+        <div>
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+        </div>
+        <p>Service</p>
+        <div>
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars">
+        </div>
+        <p>Price</p>
+        <div>
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar.png" alt="dollar" id="dollar">
+        </div>
+        <h3>Photo</h3>
+        <img src="images/italian-restaurant.jpg" alt="Italian Restaurant">
+        <div>        
+            <p id="buttons">Save changes</p>
+            <p id="buttons">Send note</p>
+            <p id="buttons">Post as review</p>
+        </div>
+    </div>
+</body>
 
 </html>
