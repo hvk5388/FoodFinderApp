@@ -86,6 +86,14 @@ header {
     min-height: 500px;
 }
 
+#menuContainer {
+    overflow: scroll;
+    background-color: #f1f1f1;
+	width:70%;
+    font-size: 30px;
+    min-height: 500px;
+    height: 100%;
+}
 #map {
     height: 100%;
     width: 100%;
@@ -147,11 +155,11 @@ input[type=submit]:hover {
 }
 
 #restStars{
-    margin-top: -30px;
+    
     float: right;
     position: relative;
     margin-right: 60px;
-    top: -58px;   
+    float: right;
 }
 
 #xButton {
@@ -164,5 +172,105 @@ input[type=submit]:hover {
 }
 
 #restaurantPic {
+    padding-left: 2%;
+    width: 96%;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.buttonFlexCont{
+    flex-wrap: wrap;
+    padding-left: 2%;
+    width: 96%;
+    margin-top: -10px;
+    text-align: center;
+}
+
+.buttonFlexCont button{
+    background-color: transparent;
+    color: grey;
+    padding: 12px 40px 12px 40px;
+    border: 2px solid lightcoral;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top:10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.buttonFlexCont button:hover{
+    background-color: lightcoral;
+    color: white;
+}
+
+.buttonFlexCont .buttonActive{
+    background-color: lightcoral;
+    color: white;
+}
+
+/* Menu style */
+#menuTable{
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 30px;
+    table-layout: fixed;
+}
+
+#menuTable th{
+    font-size: 24px;
+    padding-bottom: 14px;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    border-bottom: 1px solid grey;
+}
+
+#menuTable tr:nth-child(2) td{
+    padding-top: 20px;
+}
+
+#menuTable td{
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 20px;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+#favoriteBtn{
+    border:none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+#heartIcon{
+    font-size: 30px;
+}
+
+.flex-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+  
+.flex-grid>* {
+    height: 80px;
+}
+
+@media screen and (max-width: 1155px) {
+    #restStars {
+      float: left;
+    }
+    .flex-grid{
+        position: relative;
+        top: -30px;
+        margin-bottom:-90px;
+    }
 }

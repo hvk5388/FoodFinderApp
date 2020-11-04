@@ -11,6 +11,7 @@
             <span id="menuIcon" class="material-icons">menu</span>
             <div class="dropdown-content">
                 <a href="index.html">Home</a><hr>
+                <a href="restaurants.html">Restaurants</a><hr>
                 <a href="favorites.html">Favorites</a><hr>
                 <a href="myNotes.html">Notes</a>
             </div>       
@@ -104,20 +105,51 @@
                     <input type="submit" value="Search">
                 </form>
             </div>
-            <div id="mapContainer">
+            <div id="menuContainer">
+                
                 <a href="restaurants.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>
-                <h2>Snap Pizza</h2>
-                <div id="restStars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
+                <div class="flex-grid">
+                    <div><h2>Snap Pizza<button id="favoriteBtn"><span id="heartIcon" class="material-icons">favorite_border</span></button></h2></div>
+                    <div>
+                        <div id="restStars">
+                            <img src="images/star1.png" alt="star" id="stars">
+                            <img src="images/star1.png" alt="star" id="stars">
+                            <img src="images/star1.png" alt="star" id="stars">
+                            <img src="images/star1.png" alt="star" id="stars">
+                            <img src="images/star1.png" alt="star" id="stars">
+                        </div>
+                    </div>
                 </div>
+                
                 <img src="images/snap.jpeg" alt="snap pizza" id="restaurantPic">
                 <h3>Menu</h3>
-
-            </div>
+                <div class="buttonFlexCont">
+                    <button>Category1</button>
+                    <button class="buttonActive">Category2</button>
+                    <button>Category3</button>
+                    <button>Category4</button>
+                    <button>Category5</button>
+                    <button>Category6</button>
+                </div>
+                <table id="menuTable">
+                    <tr>
+                        <th>Category2</th>
+                    </tr>
+                    <tr>
+                        <td>food1</td>
+                    </tr>
+                    <tr>
+                        <td>food1</td>
+                    </tr>
+                    <tr>
+                        <td>food1</td>
+                    </tr>
+                    <tr>
+                        <td>food1</td>
+                    </tr>
+                </table>
+                </div>
+            
         </div>
     </body>
 </html>
