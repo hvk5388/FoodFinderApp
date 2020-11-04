@@ -1,18 +1,42 @@
-head {
+title {
     text-align: center;
+    width: 100%;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif; 
 }
 
-body {
-    text-align: center;
+.table {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center; 
+    justify-content: center;
+    width: 100%;
+    background-color: lightgray;
 }
 
-table {
-    text-align: center;
+tr {
+    font-family: 'Montserrat', sans-serif;
 }
 
 #heart {
     width: 50;
     height: 50; 
+}
 
+#button {
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+    display: inline-block; 
+}
 
+#name {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#liked {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#location {
+    font-family: 'Montserrat', sans-serif;
 }
