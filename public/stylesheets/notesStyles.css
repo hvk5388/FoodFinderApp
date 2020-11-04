@@ -3,8 +3,7 @@ body{
 }
 
 .restaurants{
-    margin-left: -10px;
-    padding-top: 50px;
+    padding-top: 100px;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -109,15 +108,25 @@ table{
     padding-bottom: 100px;
 }
 
-li{
+ul{
     list-style: none;
+    text-align: center;
+}
+
+.checkbox-container {
+    padding-top:80px;
+    width: 100%;
 }
 
 .flex-container {
-    padding-top:80px;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+}
+
+.flex-item-right {
+    background-color:lightgray;
+    padding: 10px;
+    flex: 50%;
 }
 
 .grid-container {
@@ -144,4 +153,8 @@ li{
     padding-top: 20px;
     background-color: lightgray;
     padding-bottom: 100px;
+}
+
+#category{
+    text-align: right;
 }
