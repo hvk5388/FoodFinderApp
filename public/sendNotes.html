@@ -19,14 +19,13 @@
     </header>
 
     <body>
-        <div id="popup">
-            <a href="myNotes.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>
-            <table style="width:100%">
+        <a href="myNotes.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>
+            <table id="popup" width="100%">
                 <tr>
                   <th colspan="3">Send Notes</th>
                 </tr>
                 <tr>
-                  <td>Food</td>
+                  <td>Food: </td>
                   <td>
                     <img src="images/star1.png" alt="star" id="stars">
                     <img src="images/star1.png" alt="star" id="stars">
@@ -36,7 +35,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Service</td>
+                  <td>Service: </td>
                   <td>
                     <img src="images/star1.png" alt="star" id="stars">
                     <img src="images/star1.png" alt="star" id="stars">
@@ -46,7 +45,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Price</td>
+                  <td>Price: </td>
                   <td>
                     <img src="images/dollar.png" alt="dollar" id="dollar">
                     <img src="images/dollar.png" alt="dollar" id="dollar">
@@ -58,30 +57,24 @@
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <div class="flex-container">
-                            <div id="optionsContainer">
-                                <form id="optionForm" action="">
-                                    </label><b>Send to:</b></label>
-                                    <hr>
-                                    <input type="checkbox" id="hannah" name="hannah" value="option">
-                                    <label for="hannah">Hannah Kern</label><br>
-                                    <hr>
-                                    <input type="checkbox" id="taylor" name="taylor" value="option">
-                                    <label for="taylor">Taylor Bracone</label><br>
-                                    <hr>
-                                    <input type="checkbox" id="ryan" name="ryan" value="option">
-                                    <label for="ryan">Ryan McGlynn</label><br>
-                                    <br>
-                                    <input type="submit" value="Send">
-                                </form>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-              </table>
-        </div>
+            </table>
+            <div class="flex-container" id="checkboxes">
+                <div id="optionsContainer">
+                    <form id="optionForm" action="">
+                        </label><b>Send to:</b></label>
+                        <hr>
+                        <input type="checkbox" id="hannah" name="hannah" value="option">
+                        <label for="hannah">Hannah Kern</label><br>
+                        <hr>
+                        <input type="checkbox" id="taylor" name="taylor" value="option">
+                        <label for="taylor">Taylor Bracone</label><br>
+                        <hr>
+                        <input type="checkbox" id="ryan" name="ryan" value="option">
+                        <label for="ryan">Ryan McGlynn</label><br>
+                        <br>
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+            </div>
     </body>
 </html>
