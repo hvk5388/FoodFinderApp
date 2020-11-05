@@ -1,55 +1,56 @@
-html, body {
-  height: 100%;
-  margin:0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #e6e6e6;
+html,
+body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #e6e6e6;
 }
 
-h1{
-  font-size: 70px;
+h1 {
+	font-size: 70px;
 }
-#searchBox{
-  position: relative;
-  width: 70%;
-  margin-left:15%;
-  text-align: center;
-  top: 22%;
+
+#searchBox {
+	position: relative;
+	width: 70%;
+	margin-left: 15%;
+	text-align: center;
+	top: 22%;
 }
 
 input[type=submit] {
-  background-color: #ec5f5f;
-  color: white;
-  padding: 11px 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 90px;
-  font-size: 18px;
-  margin-left: 10px;
-  font-weight: bold;
+	background-color: #ec5f5f;
+	color: white;
+	padding: 11px 18px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	width: 90px;
+	font-size: 18px;
+	margin-left: 10px;
+	font-weight: bold;
 }
 
 input[type=submit]:hover {
-  background-color: #ea4848;
+	background-color: #ea4848;
 }
 
-input[type="text"]{
-  font-size: 20px;
-  padding: 8px;
-  border-radius: 10px;
-  outline: none;
-  border: 2px solid grey;
-  position: relative;
-  top: 1px;
-  width: 50%;
-  max-width: 400px;
+input[type="text"] {
+	font-size: 20px;
+	padding: 8px;
+	border-radius: 10px;
+	outline: none;
+	border: 2px solid grey;
+	position: relative;
+	top: 1px;
+	width: 50%;
+	max-width: 400px;
 }
 
-input[type="text"]:focus{
-  background-color: #f7f9fc;
+input[type="text"]:focus {
+	background-color: #f7f9fc;
 }
 
-#findForm{
-  width: 100%;
+#findForm {
+	width: 100%;
 }
-

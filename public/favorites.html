@@ -1,56 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <title>Favorites</title>
-    <link  href="stylesheets/favoritesStyleSheet.css" rel="styleSheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-    <header>
-        <h1 id="headerTitle">Favorites</h1>
-        <div id="menuBtn">
-            <span id="menuIcon" class="material-icons">menu</span>
-            <div class="dropdown-content">
-                <a href="index.html">Home</a><hr>
-                <a href="restaurants.html">Restaurants</a><hr>
-                <a href="favorites.html">Favorites</a><hr>
-                <a href="myNotes.html">Notes</a>
-            </div>       
-        </div>             
-    </header>
-    <body>
-        <table class="favoritesTable">
-            <tr>
-                <th id="name">Name</th>
-                <th id="liked">Liked</th>
-                <th id="location">Location</th>
-            </tr>
-            <tr>
-                <td>The Corner Room&nbsp;</td>
-                <td><span id="heart" class="material-icons">favorite</span></td>
-                <td>100 W College Ave</td>
-                <td id="buttons">Eat Here</td>
-            </tr>
-            <tr>
-                <td>Federal Taphouse&nbsp;</td>
-                <td><span id="heart" class="material-icons">favorite</span></td>
-                <td>130 S Fraser St Suite 200</td>
-                <td id="buttons">Eat Here</td>
-            </tr>
-            <tr>
-                <td>Are U Hungry&nbsp;</td>
-                <td><span id="heart" class="material-icons">favorite</span></td>
-                <td>111 Sowers St</td>
-                <td id="buttons">Eat Here</td>
-            </tr>
-            <tr>
-                <td>Jersey Mike's Subs&nbsp;</td>
-                <td><span id="heart" class="material-icons">favorite</span></td>
-                <td>128 S Allen St</td>
-                <td id="buttons">Eat Here</td>
-            </tr>
-        </table>
-    </body>
-
-
+   <!--Shows coding resources-->
+   <!--Resources https://www.w3schools.com/html/html_tables.asp-->
+   <head>
+      <title>Favorites</title>
+      <!--Shows use of links-->
+      <link  href="stylesheets/favoritesStyleSheet.css" rel="styleSheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="icon" href="images/knife_fork.png" type="image/png" sizes="32x32">
+   </head>
+   <!--Shows use of comments-->
+   <!--Shows document structure-->
+   <!--Shows coding style-->
+   <header>
+      <h1 id="headerTitle">Favorites</h1>
+      <div id="menuBtn">
+         <span id="menuIcon" class="material-icons">menu</span>
+         <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <hr>
+            <a href="restaurants.html">Restaurants</a>
+            <hr>
+            <a href="favorites.html">Favorites</a>
+            <hr>
+            <a href="myNotes.html">Notes</a>
+         </div>
+      </div>
+   </header>
+   <!--Shows use of tags-->
+   <body>
+      <!--Shows use of table-->
+      <!--Shows use of container-->
+      <table class="favoritesTable">
+         <tr>
+            <th>Photo</th>
+            <th id="name">Name</th>
+            <th id="liked">Liked</th>
+            <th id="location">Location</th>
+         </tr>
+         <tr>
+            <!--Shows use of special character-->
+            <td><img src="images/soup.png" alt="soup"></td>
+            <td>The Corner Room&nbsp;</td>
+            <td><span id="heart" class="material-icons">favorite</span></td>
+            <td>
+               <ul id="locationTagBox">
+                  <li>100 W College Ave, State College, PA 16801</li>
+                  <li id="restTags"><span>#Lunch Specials</span><span>#Coffee & Tea</span></li>
+               </ul>
+            </td>
+            <td id="buttons">Eat Here</td>
+         </tr>
+         <tr>
+            <!--Shows images-->
+            <!--Shows use of attributes-->
+            <td><img src="images/burger.png" alt="burger"></td>
+            <td>Federal Taphouse&nbsp;</td>
+            <td><span id="heart" class="material-icons">favorite</span></td>
+            <td>
+               <!--Shows use of list-->
+               <ul id="locationTagBox">
+                  <li>130 S Fraser St Suite 200, State College, PA 16801</li>
+                  <li id="restTags"><span>#Pizza</span><span>#Burgers</span></li>
+               </ul>
+            </td>
+            <td id="buttons">Eat Here</td>
+         </tr>
+         <tr>
+            <td><img src="images/fries.png" alt="fries"></td>
+            <td>Are U Hungry&nbsp;</td>
+            <td><span id="heart" class="material-icons">favorite</span></td>
+            <td>
+               <ul id="locationTagBox">
+                  <li>111 Sowers St, State College, PA 16801</li>
+                  <li id="restTags"><span>#American</span><span>#Chicken</span></li>
+               </ul>
+            </td>
+            <td id="buttons">Eat Here</td>
+         </tr>
+         <tr>
+            <td><img src="images/sub.png" alt="sub"></td>
+            <td>Jersey Mike's Subs&nbsp;</td>
+            <td><span id="heart" class="material-icons">favorite</span></td>
+            <td>
+               <ul id="locationTagBox">
+                  <li>128 S Allen St, State College, PA 16801</li>
+                  <li id="restTags"><span>#American</span><span>#Fast Food</span></li>
+               </ul>
+            </td>
+            <td id="buttons">Eat Here</td>
+         </tr>
+      </table>
+   </body>
 </html>
