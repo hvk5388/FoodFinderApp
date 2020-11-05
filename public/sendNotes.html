@@ -1,85 +1,89 @@
 <html>
-    <head>
-        <title>My notes</title>
-        <link href="stylesheets/notesStyles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-
-    <header>
-        <h1 id="headerTitle">Notes</h1>
-        <div id="menuBtn">
-            <span id="menuIcon" class="material-icons">menu</span>
-            <div class="dropdown-content">
-                <a href="index.html">Home</a><hr>
-                <a href="restaurants.html">Restaurants</a><hr>
-                <a href="favorites.html">Favorites</a><hr>
-                <a href="myNotes.html">Notes</a>
-            </div>       
-        </div>  
-    </header>
-
-    <body>
-        <a href="myNotes.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>
-            <table id="popup">
-                <tr>
-                  <th colspan="3">Send Notes</th>
-                </tr>
-                <tr>
-                  <td id="category">Food: </td>
-                  <td>
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                  </td>
-                </tr>
-                <tr>
-                  <td id="category">Service: </td>
-                  <td>
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                    <img src="images/star1.png" alt="star" id="stars">
-                  </td>
-                </tr>
-                <tr>
-                  <td id="category">Price: </td>
-                  <td>
-                    <img src="images/dollar.png" alt="dollar" id="dollar">
-                    <img src="images/dollar.png" alt="dollar" id="dollar">
-                    <img src="images/dollar.png" alt="dollar" id="dollar">
-                    <img src="images/dollar.png" alt="dollar" id="dollar">
-                    <img src="images/dollar.png" alt="dollar" id="dollar">
-                  </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <div class="checkbox-container">
-                            <form id="optionForm" action=""></form>
-                                </label><b>Send to:</b></label>
-                                <hr>
-                                <input type="checkbox" id="hannah" name="hannah" value="option">
-                                <label for="hannah">Hannah Kern</label><br>
-                                <hr>
-                                <input type="checkbox" id="taylor" name="taylor" value="option">
-                                <label for="taylor">Taylor Bracone</label><br>
-                                <hr>
-                                <input type="checkbox" id="ryan" name="ryan" value="option">
-                                <label for="ryan">Ryan McGlynn</label><br>
-                                <br>
-                                <input type="submit" value="Send">
-                            </form>
-                        </div>
-                    </td>
-                    <td width="60px">&nbsp;</td>
-                </tr>
-            </table>
-    </body>
+   <head>
+      <title>Send Notes</title>
+      <link href="stylesheets/notesStyles.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="icon" href="images/knife_fork.png" type="image/png" sizes="32x32">
+   </head>
+   <header>
+      <h1 id="headerTitle">Notes</h1>
+      <div id="menuBtn">
+         <span id="menuIcon" class="material-icons">menu</span>
+         <div class="dropdown-content">
+            <a href="index.html">Home</a>
+            <hr>
+            <a href="restaurants.html">Restaurants</a>
+            <hr>
+            <a href="favorites.html">Favorites</a>
+            <hr>
+            <a href="myNotes.html">Notes</a>
+         </div>
+      </div>
+   </header>
+   <body>
+      <a href="myNotes.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>
+      <!--Shows use of table-->
+      <table id="popup">
+         <tr>
+            <th colspan="3">Send Notes</th>
+         </tr>
+         <tr>
+            <td id="category">Food: </td>
+            <td>
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+            </td>
+         </tr>
+         <tr>
+            <td id="category">Service: </td>
+            <td>
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+               <img src="images/star1.png" alt="star" id="stars">
+            </td>
+         </tr>
+         <tr>
+            <td id="category">Price: </td>
+            <td>
+               <img src="images/dollar.png" alt="dollar" id="dollar">
+               <img src="images/dollar.png" alt="dollar" id="dollar">
+               <img src="images/dollar.png" alt="dollar" id="dollar">
+               <img src="images/dollar.png" alt="dollar" id="dollar">
+               <img src="images/dollar.png" alt="dollar" id="dollar">
+            </td>
+         </tr>
+         <tr>
+            <!--Shows use of special character-->
+            <td>&nbsp;</td>
+         </tr>
+         <tr>
+            <td></td>
+            <td>
+               <div class="checkbox-container">
+                  <form id="optionForm" action=""></form>
+                  </label><b>Send to:</b></label>
+                  <hr>
+                  <input type="checkbox" id="hannah" name="hannah" value="option">
+                  <label for="hannah">Hannah Kern</label><br>
+                  <hr>
+                  <input type="checkbox" id="taylor" name="taylor" value="option">
+                  <label for="taylor">Taylor Bracone</label><br>
+                  <hr>
+                  <input type="checkbox" id="ryan" name="ryan" value="option">
+                  <label for="ryan">Ryan McGlynn</label><br>
+                  <br>
+                  <input type="submit" value="Send">
+                  </form>
+               </div>
+            </td>
+            <td width="60px">&nbsp;</td>
+         </tr>
+      </table>
+   </body>
 </html>
