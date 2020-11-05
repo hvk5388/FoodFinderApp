@@ -1,9 +1,12 @@
 <html>
     <head>
+        <!--Shows restuarant document structure-->
         <title>Restuarant List</title>
         <link rel="stylesheet" href="stylesheets/restaurantStyleSheet.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Coding resource-->
+        <!--https://www.w3schools.com/tags/tag_hr.asp-->
     </head>
     <header>
         <h1 id="headerTitle">Restaurants</h1>
@@ -21,8 +24,10 @@
     <body>
         <div class="flex-container">
             <div id="optionsContainer">
+                <!--Shows coding style-->
                 <form id="optionForm" action="">
-                    </label><b>Food Filter</b></label>
+                    <!--Shows special characters-->
+                    </label><b>&nbsp;Food Filter</b></label>
                     <hr>
                     <input type="checkbox" id="american" name="american" value="option">
                     <label for="american">American</label><br>
@@ -105,13 +110,17 @@
                     <input type="submit" value="Search">
                 </form>
             </div>
+            <!--Shows comments-->
+            <!--Shows flex container-->
             <div id="menuContainer">
-                
+                <!--Shows link-->              
                 <a href="restaurants.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>
                 <div class="flex-grid">
                     <div><h2>Snap Pizza<button id="favoriteBtn"><span id="heartIcon" class="material-icons">favorite_border</span></button></h2></div>
                     <div>
+                        <!--Shows use of tags-->
                         <div id="restStars">
+                            <!--Shows use of attributes-->
                             <img src="images/star1.png" alt="star" id="stars">
                             <img src="images/star1.png" alt="star" id="stars">
                             <img src="images/star1.png" alt="star" id="stars">
@@ -120,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <!--Shows image-->
                 <img src="images/snap.jpeg" alt="snap pizza" id="restaurantPic">
                 <h3>Menu</h3>
                 <div class="buttonFlexCont">
@@ -131,6 +140,7 @@
                     <button>Category5</button>
                     <button>Category6</button>
                 </div>
+                <!--Shows table-->
                 <table id="menuTable">
                     <tr>
                         <th>Category2</th>
@@ -148,8 +158,7 @@
                         <td>food1</td>
                     </tr>
                 </table>
-                </div>
-            
+                </div>           
         </div>
     </body>
 </html>

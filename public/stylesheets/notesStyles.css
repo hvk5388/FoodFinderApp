@@ -22,12 +22,21 @@ img{
     filter: grayscale(100%);
 }
 
-#buttons{
+/* Button styles */
+#buttons, input[type=submit]{
     display: inline-block;
-    background-color: white;
-    border-radius: 15px;
-    padding: 5px;
-    color: gray;
+    background-color: #ec5f5f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 200px;
+    font-size: 16px;
+}
+  
+#buttons:hover, input[type=submit]:hover {
+    background-color: #ea4848;
 }
 
 #dollar{
@@ -105,17 +114,26 @@ table{
     padding-top: 20px;
     width: 100%;
     background-color: lightgray;
-    padding-bottom: 100px;
+    padding-bottom: 300px;
+    
 }
 
 ul{
     list-style: none;
     text-align: center;
+    position: relative;
+    left: -18px;
 }
 
 .checkbox-container {
     padding-top:80px;
     width: 100%;
+}
+
+.checkbox-container{
+    width: 30%;
+    position: relative;
+    left: 35%;
 }
 
 .flex-container {
@@ -136,7 +154,7 @@ ul{
 
 #xButton {
     position: relative;
-    top: 60px;
+    top: 75px;
     float: right;
     padding: 20px;
 }
@@ -146,7 +164,6 @@ ul{
 }
 
 #checkboxes {
-    width: 100%;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     column-width: 20%;
@@ -156,5 +173,5 @@ ul{
 }
 
 #category{
-    text-align: right;
+    text-align: left;
 }
