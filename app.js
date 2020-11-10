@@ -17,4 +17,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.post('/restaurants.html', (req, res) => {
+    res.redirect('/restaurants.html')
+})
+
 module.exports = app;
