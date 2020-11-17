@@ -12,27 +12,6 @@ function cornerRoomLocation() {
     }).addTo(mymap);
 
     var marker = L.marker([40.794267, -77.861607]).addTo(mymap).bindPopup("<b>The Corner Room</b><br>Eat Here.").openPopup();
-
-    var circle = L.circle([40.794267, -77.861607], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(mymap).bindPopup("I am a circle.");
-
-    var polygon = L.polygon([
-        [51.509, -0.08],
-        [51.503, -0.06],
-        [51.51, -0.047]
-    ]).addTo(mymap).bindPopup("I am a polygon.");
-
-    var popup = L.popup()
-
-    function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-    }
-
-    mymap.on('click', onMapClick);
 } 
 
 
@@ -51,26 +30,6 @@ function fedTapLocation() {
 
     var marker = L.marker([40.792786, -77.862147]).addTo(mymap).bindPopup("<b>Federal Taphouse</b><br>Eat Here.").openPopup();
 
-    var circle = L.circle([40.792786, -77.862147], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(mymap).bindPopup("I am a circle.");
-
-    var polygon = L.polygon([
-        [51.509, -0.08],
-        [51.503, -0.06],
-        [51.51, -0.047]
-    ]).addTo(mymap).bindPopup("I am a polygon.");
-
-    var popup = L.popup()
-
-    function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-    }
-
-    mymap.on('click', onMapClick);
 } 
 
 
@@ -89,26 +48,6 @@ function areULocation() {
 
     var marker = L.marker([40.798170, -77.855532]).addTo(mymap).bindPopup("<b>Are U Hungry</b><br>Eat Here.").openPopup();
 
-    var circle = L.circle([40.798170, -77.855532], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(mymap).bindPopup("I am a circle.");
-
-    var polygon = L.polygon([
-        [51.509, -0.08],
-        [51.503, -0.06],
-        [51.51, -0.047]
-    ]).addTo(mymap).bindPopup("I am a polygon.");
-
-    var popup = L.popup()
-
-    function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-    }
-
-    mymap.on('click', onMapClick);
 } 
 
 
@@ -126,27 +65,7 @@ function jerseyMikeLocation() {
     }).addTo(mymap);
 
     var marker = L.marker([40.793763, -77.860948]).addTo(mymap).bindPopup("<b>Jersey Mike's Subs</b><br>Eat Here.").openPopup();
-
-    var circle = L.circle([40.793763, -77.860948], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(mymap).bindPopup("I am a circle.");
-
-    var polygon = L.polygon([
-        [51.509, -0.08],
-        [51.503, -0.06],
-        [51.51, -0.047]
-    ]).addTo(mymap).bindPopup("I am a polygon.");
-
-    var popup = L.popup()
-
-    function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-    }
-
-    mymap.on('click', onMapClick);
+    
 } 
 
 

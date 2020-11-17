@@ -63,7 +63,7 @@ app.get('/favorite/:id', (req, res) => {
     }
 
     // Sending 404 when not found something is a good practice
-    res.status(404).send('Book not found');
+    res.status(404).send('Not found');
 });
 
 module.exports = app;
