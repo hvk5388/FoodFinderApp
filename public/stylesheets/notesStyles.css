@@ -22,10 +22,9 @@ img {
 
 /* Shows use of ID */
 
-#stars {
+#stars, #stars2, #stars3, #stars4, #stars5, #stars1, #stars12, #stars13, #stars14, #stars15, #stars21, #stars22, #stars23, #stars24, #stars25, #stars31, #stars32, #stars33, #stars34, #stars35, #stars41, #stars42, #stars43, #stars44, #stars45, #stars51, #stars52, #stars53, #stars54, #stars55, #stars61, #stars62, #stars63, #stars64, #stars65, #stars71, #stars72, #stars73, #stars74, #stars75{
 	width: 5%;
 	display: inline-block;
-	filter: grayscale(100%);
 }
 
 
@@ -49,9 +48,8 @@ input[type=submit]:hover {
 	background-color: #ea4848;
 }
 
-#dollar {
+#dollar1, #dollar2, #dollar3, #dollar4, #dollar5, #dollar21, #dollar22, #dollar23, #dollar24, #dollar25, #dollar31, #dollar32, #dollar33, #dollar34, #dollar35, #dollar41, #dollar42, #dollar43, #dollar44, #dollar45 {
 	width: 5%;
-	filter: grayscale(100%);
 }
 
 
@@ -87,6 +85,16 @@ header {
 #menuIcon {
 	font-size: 40px;
 	padding: 20px;
+}
+
+#darkbutton {
+	position: fixed;
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+	cursor: pointer;
+	top: 20px;
+	right: 5px;
 }
 
 

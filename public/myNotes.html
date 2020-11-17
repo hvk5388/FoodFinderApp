@@ -8,6 +8,108 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="icon" href="images/knife_fork.png" type="image/png" sizes="32x32">
+      <script type="text/javascript" src="scripts/notes.js"></script>
+      <!--zomato code: c5a4d23666651d441df32f8575112080 -->
+      <script>
+         function changeFilter(icon) {
+            if(icon.src = "images/star.png") { //shows use of if else statements
+               icon.scr = "images/star1.png"; //demonstrates dom manipulations
+            } else if(icon.src = "images/star1.png"){
+               icon.src = "images/star.png";
+            }
+         }
+
+         function changeDollar(icon) {
+            if(icon.src = "images/dollar.png") {
+               icon.scr = "images/dollar1.png";
+            } else if(icon.src = "images/dollar1.png"){
+               icon.src = "images/dollar.png";
+            }
+         }
+
+         var form_id_js = "email_form";
+
+         var data_js = { //demonstrates use of objects
+            "access_token": "9vtj4szaxzb00w5vzgsycvsy"
+         };
+
+         function js_onSuccess() {
+            // remove this to avoid redirect
+            window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+         }
+
+         function js_onError(error) {
+            // remove this to avoid redirect
+            window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+         }
+
+         var sendButton = $("#" + form_id_js + " [name='send']"); //demonstrates use of jquery
+
+         function js_send() {
+            sendButton.value='Sending…';
+            sendButton.disabled=true;
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                  if (request.readyState == 4 && request.status == 200) { //demonstrates use of conditionals
+                     js_onSuccess();
+                  } else
+                  if(request.readyState == 4) {
+                     js_onError(request.response);
+                  }
+            };
+
+            var subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
+            var message = document.querySelector("#" + form_id_js + " [name='text']").value;
+            data_js['subject'] = subject;
+            data_js['text'] = message;
+            var params = toParams(data_js);
+
+            request.open("POST", "https://postmail.invotes.com/send", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            request.send(params);
+
+            return false;
+         }
+
+         sendButton.onclick = js_send;
+
+         function toParams(data_js) { //demonstrates use of functions
+            var form_data = []; //demonstrates use of arrays
+            for ( var key in data_js ) { //demonstrates use of loops
+                  form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+            }
+
+            return form_data.join("&");
+         }
+
+         var js_form = document.getElementById(form_id_js);
+         js_form.addEventListener("submit", function (e) {
+            e.preventDefault();
+         });
+
+         var submitButton = document.getElementById("submit_form");
+         var form = document.getElementById("email_form");
+         form.addEventListener("submit", function (e) {
+            setTimeout(function() {
+                  submitButton.value = "Sending...";
+                  submitButton.disabled = true;
+            }, 1);
+         });
+
+         //recieved help from https://postmail.invotes.com
+
+         function darkMode() {
+               var highlightedItems = document.querySelectorAll("#flexbuttons");
+
+               highlightedItems.forEach(function(userItem) {
+               userItem.style.backgroundColor= "black";
+               });
+               
+               document.getElementById("restaurants").style.backgroundColor = "black";
+               document.getElementById("restaurants").style.color = "white";
+         }
+      </script>
    </head>
    <!--Shows use of document structure-->
    <!--Shows use of coding style-->
@@ -25,11 +127,14 @@
             <a href="myNotes.html">Notes</a>
          </div>
       </div>
+      <div id="darkbutton">
+         <button onclick="darkMode()">Dark Mode</button>
+      </div>
    </header>
    <body>
       <!--Shows use of tags-->
       <!--Shows use of containers-->
-      <div class="restaurants">
+      <div class="restaurants" id="restaurants">
          <h2>Snap Pizza</h2>
          <h3>Description</h3>
          <ul>
@@ -42,36 +147,35 @@
          <div>
             <!--Will update colors in future project, stars can be clicked to change rating-->
             <!--Shows use of attributes-->
-            <!--Shows use of images-->
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
+            <!--Shows use of images-->            
+            <img src="images/star1.png" alt="star" id="stars" onclick="changeFilter(document.getElementById('stars'))">
+            <img src="images/star1.png" alt="star" id="stars2" onclick="changeFilter(document.getElementById('stars2'))">
+            <img src="images/star1.png" alt="star" id="stars3" onclick="changeFilter(document.getElementById('stars3'))">
+            <img src="images/star1.png" alt="star" id="stars4" onclick="changeFilter(document.getElementById('stars4'))">
+            <img src="images/star1.png" alt="star" id="stars5" onclick="changeFilter(document.getElementById('stars5'))">
          </div>
          <p>Service</p>
          <div>
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars1" onclick="changeFilter(document.getElementById('stars1'))">
+            <img src="images/star1.png" alt="star" id="stars12" onclick="changeFilter(document.getElementById('stars12'))">
+            <img src="images/star1.png" alt="star" id="stars13" onclick="changeFilter(document.getElementById('stars13'))">
+            <img src="images/star1.png" alt="star" id="stars14" onclick="changeFilter(document.getElementById('stars14'))">
+            <img src="images/star1.png" alt="star" id="stars15" onclick="changeFilter(document.getElementById('stars15'))">
          </div>
          <p>Price</p>
          <div>
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar1.png" alt="dollar" id="dollar1" onclick="changeDollar(document.getElementById('dollar1'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar2" onclick="changeDollar(document.getElementById('dollar2'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar3" onclick="changeDollar(document.getElementById('dollar3'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar4" onclick="changeDollar(document.getElementById('dollar4'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar5" onclick="changeDollar(document.getElementById('dollar5'))">
          </div>
          <h3>Photo</h3>
          <div class="grid-container">
             <div class="grid-item"><img src="images/pizza-shop.jpg" alt="Pizza Shop"></div>
          </div>
          <div class="flex-container">
-            <div class="flex-item-right"><a href="myNotes.html" id="buttons">Save changes</a></div>
-            <div class="flex-item-right"><a href="sendNotes.html" id="buttons">Send note</a></div>
+            <div class="flex-item-right" id="flexbuttons"><a href="sendNotes.html" id="buttons">Send note</a></div>
          </div>
          <h2>John's Shanghai</h2>
          <h3>Description</h3>
@@ -82,35 +186,34 @@
          <h3>Ratings</h3>
          <p>Food</p>
          <div>
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars21" onclick="changeFilter(document.getElementById('stars21'))">
+            <img src="images/star1.png" alt="star" id="stars22" onclick="changeFilter(document.getElementById('stars22'))">
+            <img src="images/star1.png" alt="star" id="stars23" onclick="changeFilter(document.getElementById('stars23'))">
+            <img src="images/star1.png" alt="star" id="stars24" onclick="changeFilter(document.getElementById('stars24'))">
+            <img src="images/star1.png" alt="star" id="stars25" onclick="changeFilter(document.getElementById('stars25'))">
          </div>
          <p>Service</p>
          <div>
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars31" onclick="changeFilter(document.getElementById('stars31'))">
+            <img src="images/star1.png" alt="star" id="stars32" onclick="changeFilter(document.getElementById('stars32'))">
+            <img src="images/star1.png" alt="star" id="stars33" onclick="changeFilter(document.getElementById('stars33'))">
+            <img src="images/star1.png" alt="star" id="stars34" onclick="changeFilter(document.getElementById('stars34'))">
+            <img src="images/star1.png" alt="star" id="stars35" onclick="changeFilter(document.getElementById('stars35'))">
          </div>
          <p>Price</p>
          <div>
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar1.png" alt="dollar" id="dollar21" onclick="changeDollar(document.getElementById('dollar21'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar22" onclick="changeDollar(document.getElementById('dollar22'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar23" onclick="changeDollar(document.getElementById('dollar23'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar24" onclick="changeDollar(document.getElementById('dollar24'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar25" onclick="changeDollar(document.getElementById('dollar25'))">
          </div>
          <h3>Photo</h3>
          <div class="grid-container">
             <div class="grid-item"><img src="images/chinese-food.jpg" alt="Chinese Food"></div>
          </div>
          <div class="flex-container">
-            <div class="flex-item-right"><a href="myNotes.html" id="buttons">Save changes</a></div>
-            <div class="flex-item-right"><a href="sendNotes.html" id="buttons">Send note</a></div>
+            <div class="flex-item-right" id="flexbuttons"><a href="sendNotes.html" id="buttons">Send note</a></div>
          </div>
          <h2>Olive Garden</h2>
          <h3>Description</h3>
@@ -122,35 +225,34 @@
          <h3>Ratings</h3>
          <p>Food</p>
          <div>
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars41" onclick="changeFilter(document.getElementById('stars41'))">
+            <img src="images/star1.png" alt="star" id="stars42" onclick="changeFilter(document.getElementById('stars42'))">
+            <img src="images/star1.png" alt="star" id="stars43" onclick="changeFilter(document.getElementById('stars43'))">
+            <img src="images/star1.png" alt="star" id="stars44" onclick="changeFilter(document.getElementById('stars44'))">
+            <img src="images/star1.png" alt="star" id="stars45" onclick="changeFilter(document.getElementById('stars45'))">
          </div>
          <p>Service</p>
          <div>
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
-            <img src="images/star1.png" alt="star" id="stars">
+            <img src="images/star1.png" alt="star" id="stars51" onclick="changeFilter(document.getElementById('stars51'))">
+            <img src="images/star1.png" alt="star" id="stars52" onclick="changeFilter(document.getElementById('stars52'))">
+            <img src="images/star1.png" alt="star" id="stars53" onclick="changeFilter(document.getElementById('stars53'))">
+            <img src="images/star1.png" alt="star" id="stars54" onclick="changeFilter(document.getElementById('stars54'))">
+            <img src="images/star1.png" alt="star" id="stars55" onclick="changeFilter(document.getElementById('stars55'))">
          </div>
          <p>Price</p>
          <div>
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
-            <img src="images/dollar.png" alt="dollar" id="dollar">
+            <img src="images/dollar1.png" alt="dollar" id="dollar31" onclick="changeDollar(document.getElementById('dollar31'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar32" onclick="changeDollar(document.getElementById('dollar32'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar33" onclick="changeDollar(document.getElementById('dollar33'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar34" onclick="changeDollar(document.getElementById('dollar34'))">
+            <img src="images/dollar1.png" alt="dollar" id="dollar35" onclick="changeDollar(document.getElementById('dollar35'))">
          </div>
          <h3>Photo</h3>
          <div class="grid-container">
             <div class="grid-item"><img src="images/italian-restaurant.jpg" alt="Italian Restaurant"></div>
          </div>
          <div class="flex-container">
-            <div class="flex-item-right"><a href="myNotes.html" id="buttons">Save changes</a></div>
-            <div class="flex-item-right"><a href="sendNotes.html" id="buttons">Send note</a></div>
+            <div class="flex-item-right" id="flexbuttons"><a href="sendNotes.html" id="buttons">Send note</a></div>
          </div>
       </div>
    </body>
