@@ -9,6 +9,9 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="icon" href="images/knife_fork.png" type="image/png" sizes="32x32">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+      <script type="text/javascript" src="scripts/favorites.js"></script>
    </head>
    <!--Shows use of comments-->
    <!--Shows document structure-->
@@ -29,6 +32,7 @@
       </div>
    </header>
    <!--Shows use of tags-->
+
    <body>
       <!--Shows use of table-->
       <!--Shows use of container-->
@@ -50,7 +54,7 @@
                   <li id="restTags"><span>#Lunch Specials</span><span>#Coffee & Tea</span></li>
                </ul>
             </td>
-            <td id="buttons">Eat Here</td>
+            <td id="buttons" onclick="cornerRoomLocation()">Eat Here</td> 
          </tr>
          <tr>
             <!--Shows images-->
@@ -65,7 +69,7 @@
                   <li id="restTags"><span>#Pizza</span><span>#Burgers</span></li>
                </ul>
             </td>
-            <td id="buttons">Eat Here</td>
+            <td id="buttons" onclick="fedTapLocation()">Eat Here</td>
          </tr>
          <tr>
             <td><img src="images/fries.png" alt="fries"></td>
@@ -77,7 +81,7 @@
                   <li id="restTags"><span>#American</span><span>#Chicken</span></li>
                </ul>
             </td>
-            <td id="buttons">Eat Here</td>
+            <td id="buttons" onclick="areULocation()">Eat Here</td>
          </tr>
          <tr>
             <td><img src="images/sub.png" alt="sub"></td>
@@ -89,8 +93,10 @@
                   <li id="restTags"><span>#American</span><span>#Fast Food</span></li>
                </ul>
             </td>
-            <td id="buttons">Eat Here</td>
+            <td id="buttons" onclick="jerseyMikeLocation()">Eat Here</td>
          </tr>
       </table>
+
+      <div id="mapid"></div>
    </body>
 </html>
