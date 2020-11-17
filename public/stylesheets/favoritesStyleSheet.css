@@ -171,3 +171,5 @@ input[type=submit]:hover {
 #location {
 	font-family: 'Montserrat', sans-serif;
 }
+
+#mapid { height: 300px; }
