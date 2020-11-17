@@ -28,42 +28,34 @@ $(document).ready(function () {
                   fillColor: '#f03',
                   fillOpacity: 0.5
                }).addTo(mymap).bindPopup("Set Range");
-            
-               L.polygon([
-                  [51.509, -0.08],
-                  [51.503, -0.06],
-                  [51.51, -0.047]
-               ]).addTo(mymap).bindPopup("I am a polygon.");
-            
-            
-               var popup = L.popup();
-            
-               function onMapClick(e) {
-                  popup
-                     .setLatLng(e.latlng)
-                     .setContent("You clicked the map at " + e.latlng.toString())
-                     .openOn(mymap);
-               }
-            
-               mymap.on('click', onMapClick);           
+                      
+               /*function addMarker(){
+                  L.marker([40.792786, -77.862147]).addTo(mymap).bindPopup("<h4>Test</h4>");
+               }*/
 });
 
+/* Get restauarant using zomato */
 function getRestaurant(){
    var clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
-   var zipcode = document.getElementById('zipcodeInput').value;
-   var rootURL = 'https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/' + clientKey + '/info.json/' + zipcode + '/degrees';
-
+   //var rootURL = 'https://developers.zomato.com/api/v2.1/search?lat=' + latitude + '&lon=' + longitude + '&radius=300';
+   var rootURL = 'https://developers.zomato.com/api/v2.1/search?lat=40.7934&lon=-77.8600&radius=300';
    $.ajax({
-     url: rootURL,
-     method: `GET`,
-     dataType: "json",
-     headers: { "User-key": clientKey },
-     success: successRestaurant
+      method: "GET",
+      url: rootURL,
+      headers: {
+        "user-key": clientKey,
+        "content-type": "application/json"
+      },
+      success: successRestaurant
   });
 }
 
-/*the function is accessing the objects attributes*/
+/*the function is accessing the restuarant objects attributes*/
 function successRestaurant(data) {
    /* Add for loop for locations */
+   document.getElementById("demo").innerHTML = data.restaurants.length + '<br>'; //length of restuarants found
+   document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.name + '<br>'; // get rest name
+   document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.address + '<br>'; // get rest address
+   document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.latitude + '<br>'; // get rest lat
+   document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.longitude + '<br>'; // get rest long
 }
-               

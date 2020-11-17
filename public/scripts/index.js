@@ -17,8 +17,8 @@ function showPosition(position) {
     window.location.replace("restaurants.html");
  }
 
-function getAreaCode(){
-    var clientKey = 'dG5biqhcgn4pndgo9lgglAGtiO67KCVJQqAQaXPR4WA0Lo08KEKc3k47w83TAxta';
+ function getAreaCode(){
+    var clientKey = 'Cxns3Zxbg6HNrtYqhCs5fjNRd7ar5YpUZQmHJzjyC7po1BBFK0uKTa3bd3W7NY8R';
     var zipcode = document.getElementById('zipcodeInput').value;
     var rootURL = 'https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/' + clientKey + '/info.json/' + zipcode + '/degrees';
 
