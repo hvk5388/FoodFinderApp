@@ -11,8 +11,8 @@
    <body>
       <div id="searchBox">
          <h1>FoodFinder&nbsp;</h1>
-         <form id="findForm" method="post" action="restaurants.html">
-            <input type="text" placeholder="Enter address..."><input type="submit" value="Find">
+         <form id="findForm" action='javascript:getAreaCode()'>
+            <input id = "zipcodeInput" type="text" placeholder="Enter zipcode..."><input type="submit" value="Find">
          </form>
          <button id="currentLoc" onclick="getLocation()">Use current location</button>
          <p id="demo"></p>
