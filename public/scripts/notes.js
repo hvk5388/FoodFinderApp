@@ -87,12 +87,22 @@ form.addEventListener("submit", function (e) {
 //recieved help from https://postmail.invotes.com
 
 function darkMode() {
-     var highlightedItems = document.querySelectorAll("#flexbuttons");
+     let highlightedItems = document.querySelectorAll("#flexbuttons");
 
      highlightedItems.forEach(function(userItem) {
-     userItem.style.backgroundColor= "black";
+     userItem.style.backgroundColor= "lightgray";
      });
      document.getElementById('MenuHeader').style.backgroundColor = "grey";
+     document.getElementById('darkButton').style.visibility = "hidden";
      //document.getElementById("restaurants").style.backgroundColor = "black";
      //document.getElementById("restaurants").style.color = "white";
+}
+
+function lightMode(){
+  let highlightedItems = document.querySelectorAll("#flexbuttons");
+  highlightedItems.forEach(function(userItem) {
+    userItem.style.backgroundColor= "lightgray";
+  });
+  document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
+  document.getElementById('darkButton').style.visibility = "visible";
 }

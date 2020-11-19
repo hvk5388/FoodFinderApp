@@ -5,6 +5,34 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+/* Dark Mode */
+
+#darkButton{
+	color: black;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 3;
+	visibility: visible;
+}
+
+#lightButton{
+	color: white;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	right: -44px;
+}
 
 /* Header name and menu */
 
@@ -145,17 +173,6 @@ a {
 	text-decoration: none;
 	/* no underline */
 	cursor: pointer;
-}
-
-#darkbutton{
-	color: white;
-	outline: none;
-	float: right;
-	position: relative;
-	top: -66px;
-	padding: 10px;
-	border: none;
-	background-color: transparent;
 }
 
 /* Options Form Elements */

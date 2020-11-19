@@ -6,6 +6,46 @@ body {
 	background-color: #e6e6e6;
 }
 
+#demo {
+	visibility: hidden;
+}
+
+#loadingImg{
+	visibility: hidden;
+	position: fixed;
+	width: 10%;
+	margin-left: 45%;
+}
+
+/* Dark Mode */
+
+#darkButton{
+	color: black;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 3;
+	visibility: visible;
+}
+
+#lightButton{
+	color: white;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	right: -44px;
+}
+
 /* Header name and menu */
 
 

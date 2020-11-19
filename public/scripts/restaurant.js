@@ -18,13 +18,7 @@ $(document).ready(function () {
                   zoomOffset: -1
                }).addTo(mymap);
             
-               L.marker([latitude, longitude]).addTo(mymap)
-                  .bindPopup("<h4>Current Location</h4><form action='http://localhost:3000/favorite' method='POST'>" +
-                  "<input type='hidden' name='id' value=" + restID + ">" +
-                  "<input type='hidden' name='latitude' value=" + latitude + ">" +
-                  "<input type='hidden' name='longitude' value=" + longitude + ">" +
-                  "<input type='hidden' name='restuarant' value=" + restName + ">" +
-                  "<button type='submit' class='favoriteBtn'>Favorite</button></form>").openPopup();
+               L.marker([latitude, longitude]).addTo(mymap).bindPopup("<h4>Current Location</h4>").openPopup();
             
                L.circle([latitude, longitude], 9000, {
                   color: 'red',
@@ -33,14 +27,19 @@ $(document).ready(function () {
                }).addTo(mymap).bindPopup("Set Range");
                
                getRestaurant();
-               
-                                 
+                                               
 });
 
 /* CSS dom manipulation */
 /* Functions */
 function darkMode(){
    document.getElementById('MenuHeader').style.backgroundColor = "grey";
+   document.getElementById('darkButton').style.visibility = "hidden";
+}
+
+function lightMode(){
+   document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
+   document.getElementById('darkButton').style.visibility = "visible";
 }
 
 /* Get restauarant using zomato */
@@ -90,6 +89,14 @@ function successRestaurant(data) {
       let restLong = data.restaurants[i].restaurant.location.longitude;
       let restApName = data.restaurants[i].restaurant.name;
       let restMenu = data.restaurants[i].restaurant.menu_url;
-      L.marker([restLat, restLong]).addTo(mymap).bindPopup("<p>" + restApName + "</p>" + "<br>" + "<button class='favoriteBtn' onclick='window.location.href=`" + restMenu + "`'" + "'>Menu</button>");
-    } 
+      let restID = data.restaurants[i].restaurant.R.res_id;
+      L.marker([restLat, restLong]).addTo(mymap)
+      .bindPopup("<p>" + restApName + "</p><form action='http://localhost:3000/favorite' method='POST'>" +
+                  "<input type='hidden' name='id' value=" + restID + ">" +
+                  "<input type='hidden' name='latitude' value=" + restLat + ">" +
+                  "<input type='hidden' name='longitude' value=" + restLong + ">" +
+                  "<input type='hidden' name='restuarant' value=" + restApName + ">" +
+                  "<button type='submit' class='favoriteBtn'>Favorite</button></form><button class='favoriteBtn' onclick='window.location.href=`" + 
+                  restMenu + "`'" + "'>Menu</button>");
+   } 
 }

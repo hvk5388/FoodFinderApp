@@ -8,6 +8,34 @@ body {
 	background-color: lightgray;
 }
 
+/* Dark Mode */
+
+#darkButton{
+	color: black;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 3;
+	visibility: visible;
+}
+
+#lightButton{
+	color: white;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	right: -44px;
+}
 
 /* Header name and menu */
 
