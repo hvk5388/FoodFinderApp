@@ -85,4 +85,3 @@ form.addEventListener("submit", function (e) {
 });
 
 //recieved help from https://postmail.invotes.com
-  })
