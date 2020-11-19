@@ -106,7 +106,7 @@ function getRestaurant(){
      url: rootURL,
      headers: {
        "user-key": clientKey,
-       "content-type": "application/json"
+       "cont ent-type": "application/json"
      },
      success: successRestaurant
  });
