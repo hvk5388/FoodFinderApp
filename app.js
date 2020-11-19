@@ -1,3 +1,5 @@
+/* NPM start */
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,6 +10,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+/* Express */
 const app = express();
 
 app.use(logger('dev'));
@@ -44,7 +47,7 @@ app.post('/favorite', (req, res) => {
     res.redirect('../favorites.html')
 });
 
-/* Get all favorites */
+/* Get all favorites api */
 app.get('/favorites', (req, res) => {
     res.json(favorites);
 });

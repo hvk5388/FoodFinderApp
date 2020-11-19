@@ -36,6 +36,7 @@ function successZipcode(data) {
     sessionStorage.setItem("latitude", latitude);
     var longitude = data.lng;
     sessionStorage.setItem("longitude", longitude);
+    /* Dom manipulation */
 	document.getElementById("demo").innerHTML = "lat" + latitude + "long" + longitude;
     window.location.replace("restaurants.html");
 }

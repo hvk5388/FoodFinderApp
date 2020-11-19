@@ -147,6 +147,16 @@ a {
 	cursor: pointer;
 }
 
+#darkbutton{
+	color: white;
+	outline: none;
+	float: right;
+	position: relative;
+	top: -66px;
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+}
 
 /* Options Form Elements */
 
