@@ -85,3 +85,14 @@ form.addEventListener("submit", function (e) {
 });
 
 //recieved help from https://postmail.invotes.com
+
+function darkMode() {
+     var highlightedItems = document.querySelectorAll("#flexbuttons");
+
+     highlightedItems.forEach(function(userItem) {
+     userItem.style.backgroundColor= "black";
+     });
+     
+     document.getElementById("restaurants").style.backgroundColor = "black";
+     document.getElementById("restaurants").style.color = "white";
+}
