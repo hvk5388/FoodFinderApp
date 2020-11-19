@@ -11,7 +11,7 @@
     <!--Shows use of comments-->
    <!--Shows document structure-->
    <!--Shows coding style-->
-   <header>
+   <header id="MenuHeader">
       <h1 id="headerTitle">FoodFinder</h1>
       <div id="menuBtn">
          <span id="menuIcon" class="material-icons">menu</span>
@@ -25,6 +25,8 @@
             <a href="myNotes.html">Notes</a>
          </div>
       </div>
+      <button id="darkButton" onclick="darkMode()"><span class="material-icons">nights_stay</span></button>
+      <button id="lightButton" onclick="lightMode()"><span class="material-icons">nights_stay</span></button>
    </header>
    <body>
       <div id="searchBox">
@@ -35,5 +37,6 @@
          <button id="currentLoc" onclick="getLocation()">Use current location</button>
          <p id="demo"></p>
       </div>
+      <img id="loadingImg" src="images/loadingGif.gif">
    </body>
 </html>

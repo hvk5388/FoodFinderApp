@@ -1,3 +1,13 @@
+function darkMode(){
+    document.getElementById('MenuHeader').style.backgroundColor = "grey";
+    document.getElementById('darkButton').style.visibility = "hidden";
+}
+ 
+function lightMode(){
+    document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
+    document.getElementById('darkButton').style.visibility = "visible";
+}
+
 function cornerRoomLocation() {
     
     var mymap = L.map('mapid').setView([40.794267, -77.861607], 13);
@@ -67,7 +77,6 @@ function jerseyMikeLocation() {
     var marker = L.marker([40.793763, -77.860948]).addTo(mymap).bindPopup("<b>Jersey Mike's Subs</b><br>Eat Here.").openPopup();
     
 } 
-
 
 
   

@@ -8,7 +8,7 @@
       <script type="text/javascript" src="scripts/notes.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    </head>
-   <header>
+   <header id="MenuHeader">
       <h1 id="headerTitle">Notes</h1>
       <div id="menuBtn">
          <span id="menuIcon" class="material-icons">menu</span>
@@ -22,6 +22,8 @@
             <a href="myNotes.html">Notes</a>
          </div>
       </div>
+      <button id="darkButton" onclick="darkMode()"><span class="material-icons">nights_stay</span></button>
+      <button id="lightButton" onclick="lightMode()"><span class="material-icons">nights_stay</span></button>
    </header>
    <body>
       <a href="myNotes.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>

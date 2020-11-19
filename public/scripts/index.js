@@ -1,6 +1,24 @@
+/* Loading image */
+
+function loadingIMG(){
+    document.getElementById("loadingImg").style.visibility = "visible";
+}
+
+/* CSS dom manipulation */
+/* Functions */
+function darkMode(){
+   document.getElementById('MenuHeader').style.backgroundColor = "grey";
+   document.getElementById('darkButton').style.visibility = "hidden";
+}
+
+function lightMode(){
+   document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
+   document.getElementById('darkButton').style.visibility = "visible";
+}
 
 function getLocation() {
     if (navigator.geolocation) {
+      loadingIMG();
       navigator.geolocation.getCurrentPosition(showPosition);
       
     } else { 
@@ -18,6 +36,7 @@ function showPosition(position) {
  }
 
  function getAreaCode(){
+    loadingIMG();
     var clientKey = 'Cxns3Zxbg6HNrtYqhCs5fjNRd7ar5YpUZQmHJzjyC7po1BBFK0uKTa3bd3W7NY8R';
     var zipcode = document.getElementById('zipcodeInput').value;
     var rootURL = 'https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/' + clientKey + '/info.json/' + zipcode + '/degrees';
