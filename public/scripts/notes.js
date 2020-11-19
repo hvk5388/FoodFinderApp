@@ -85,4 +85,39 @@ form.addEventListener("submit", function (e) {
 });
 
 //recieved help from https://postmail.invotes.com
-  })
+
+function darkMode() {
+     var highlightedItems = document.querySelectorAll("#flexbuttons");
+
+     highlightedItems.forEach(function(userItem) {
+     userItem.style.backgroundColor= "black";
+     });
+     
+     document.getElementById("restaurants").style.backgroundColor = "black";
+     document.getElementById("restaurants").style.color = "white";
+}
+
+/* Get restauarant using zomato */
+function getRestaurant(){
+  var clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
+  var rootURL = 'https://developers.zomato.com/api/v2.1/search?lat=40.7934&lon=-77.8600&radius=300';
+  $.ajax({
+     method: "GET",
+     url: rootURL,
+     headers: {
+       "user-key": clientKey,
+       "content-type": "application/json"
+     },
+     success: successRestaurant
+ });
+}
+
+/*the function is accessing the restuarant objects attributes*/
+function successRestaurant(data) {
+  /* Add for loop for locations */
+  document.getElementById("demo").innerHTML = data.restaurants.length + '<br>'; //length of restuarants found
+  document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.name + '<br>'; // get rest name
+  document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.address + '<br>'; // get rest address
+  document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.latitude + '<br>'; // get rest lat
+  document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.longitude + '<br>'; // get rest long
+}
