@@ -92,7 +92,7 @@ function darkMode() {
      highlightedItems.forEach(function(userItem) {
      userItem.style.backgroundColor= "black";
      });
-     
-     document.getElementById("restaurants").style.backgroundColor = "black";
-     document.getElementById("restaurants").style.color = "white";
+     document.getElementById('MenuHeader').style.backgroundColor = "grey";
+     //document.getElementById("restaurants").style.backgroundColor = "black";
+     //document.getElementById("restaurants").style.color = "white";
 }
