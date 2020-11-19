@@ -1,7 +1,10 @@
-var latitude = sessionStorage.getItem("latitude");
-var longitude = sessionStorage.getItem("longitude");
+var latitude = parseFloat(sessionStorage.getItem("latitude"));
+var longitude = parseFloat(sessionStorage.getItem("longitude"));
+var restName = "restuarantname"; /* example name */
+var restID = 12; /* example ID */
 var mymap;
-
+//var rootURL = 'https://developers.zomato.com/api/v2.1/search?lat=' + latitude + '&lon=' + longitude + '&radius=300';
+//var rootURL = 'https://developers.zomato.com/api/v2.1/search?lat=' + String(latitude) + '&lon=' + String(longitude) + '&radius=300';
 $(document).ready(function () {
    
                mymap = L.map('mapid').setView([latitude, longitude], 12);
@@ -42,12 +45,12 @@ function getRestaurant(){
    //var rootURL;
    //rootURL = 'https://developers.zomato.com/api/v2.1/search?lat=' + lat + '&lon=' + long + '&radius=300';
    //alert(rootURL);
-   alert('lat: ' + latitude + ' lon: ' + longitude);
+   //alert(typeof latitude);
    var rootURL = 'https://developers.zomato.com/api/v2.1/search?';
    var lati = 40.792786;
    var long = -77.862147;
    //alert(typeof latitude);
-   //alert(rootURL + ' lat: ' + latitude + ' lon: ' + longitude);
+   alert(rootURL + ' lat: ' + latitude + ' lon: ' + longitude);
    $.ajax({
       type: 'GET',
       url: rootURL,
@@ -59,6 +62,8 @@ function getRestaurant(){
          lat: lati,
          lon: long,
          radius: 300
+         //entity_id: 150421,
+         //entity_type: "subzone"
       },
       
       success: successRestaurant
