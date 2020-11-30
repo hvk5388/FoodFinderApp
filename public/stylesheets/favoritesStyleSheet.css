@@ -1,4 +1,4 @@
-/* Set default font */
+/*Set default font*/
 
 html,
 body {
@@ -8,7 +8,7 @@ body {
 	background-color: lightgray;
 }
 
-/* Dark Mode */
+/*Dark mode*/
 
 #darkButton{
 	color: black;
@@ -37,17 +37,17 @@ body {
 	right: -44px;
 }
 
-/* Header name and menu */
+/*Header name and menu*/
 
 
-/* Shows use of ID */
+/*Shows use of ID*/
 
 #headerTitle {
 	text-align: center;
 }
 
 
-/* Shows use of responsive design */
+/*Shows use of responsive design*/
 
 header {
 	background-color: lightcoral;
@@ -78,13 +78,13 @@ header {
 }
 
 
-/* Shows use of class */
+/*Shows use of class*/
 
 
-/* Shows use of shadow */
+/*Shows use of shadow*/
 
 
-/* Shows use of position */
+/*Shows use of position*/
 
 .dropdown-content {
 	display: none;
@@ -103,19 +103,19 @@ header {
 }
 
 
-/* Shows use of nested */
+/*Shows use of nested*/
 
 #menuBtn:hover .dropdown-content {
 	display: block;
 }
 
 
-/* Remove a tag styling */
+/*Remove a tag styling*/
 
 a {
 	color: grey;
 	text-decoration: none;
-	/* No underline */
+	/*No underline*/
 	cursor: pointer;
 }
 
@@ -129,7 +129,7 @@ a {
 }
 
 
-/* Shows use of table styling */
+/*Shows use of table styling*/
 
 tr {
 	font-family: 'Montserrat', sans-serif;
@@ -142,7 +142,7 @@ tr img {
 }
 
 
-/* Shows use of font size */
+/*Shows use of font size*/
 
 #heart {
 	font-size: 30px;
@@ -150,7 +150,7 @@ tr img {
 }
 
 
-/* Shows use of list styling */
+/*Shows use of list styling*/
 
 #locationTagBox {
 	list-style: none;
@@ -168,7 +168,7 @@ tr img {
 }
 
 
-/* Shows use of color */
+/*Shows use of color*/
 
 #buttons,
 input[type=submit] {
