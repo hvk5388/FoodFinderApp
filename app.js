@@ -1,4 +1,4 @@
-/* NPM start */
+/* NPM start*/
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -10,12 +10,14 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-/* Express */
+/*Express*/
 const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+	extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,49 +26,51 @@ app.use('/users', usersRouter);
 
 
 app.post('/restaurants.html', (req, res) => {
-    res.redirect('/restaurants.html')
+	res.redirect('/restaurants.html')
 })
 
-/* Use to store favorites, temporarily */
+/*Use to store favorites, temporarily*/
 let favorites = [];
 app.use(cors());
 
-/* Configuring body parser middleware */
-app.use(bodyParser.urlencoded({ extended: false }));
+/*Configuring body parser middleware*/
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
 app.use(bodyParser.json());
 
-/* Add to favorite list */
+/*Add to favorite list*/
 app.post('/favorite', (req, res) => {
-    const favorite = req.body;
+	const favorite = req.body;
 
-    /* Output the book to the console for debugging */
-    console.log(favorite);
-    favorites.push(favorite);
+	/*Output the book to the console for debugging*/
+	console.log(favorite);
+	favorites.push(favorite);
 
-    /* Redirect to favorites page once added to array */
-    res.redirect('../favorites.html')
+	/*Redirect to favorites page once added to array*/
+	res.redirect('../favorites.html')
 });
 
-/* Get all favorites api */
+/*Get all favorites API*/
 app.get('/favorites', (req, res) => {
-    res.json(favorites);
+	res.json(favorites);
 });
 
-/* Return favorite ID using link */
+/*Return favorite ID using link*/
 app.get('/favorite/:id', (req, res) => {
-    // Reading isbn from the URL
-    const id = req.params.id;
+	// Reading isbn from the URL
+	const id = req.params.id;
 
-    // Searching books for the isbn
-    for (let favorite of favorites) {
-        if (favorite.id === id) {
-            res.json(id);
-            return;
-        }
-    }
+	/*Searching favorties*/
+	for (let favorite of favorites) {
+		if (favorite.id === id) {
+			res.json(id);
+			return;
+		}
+	}
 
-    // Sending 404 when not found something is a good practice
-    res.status(404).send('Not found');
+	/*Sending 404 when not found something*/
+	res.status(404).send('Not found');
 });
 
 module.exports = app;

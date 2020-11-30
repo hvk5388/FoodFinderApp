@@ -5,9 +5,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-/* Dark Mode */
 
-#darkButton{
+/*Dark mode*/
+
+#darkButton {
 	color: black;
 	outline: none;
 	float: right;
@@ -21,7 +22,7 @@ body {
 	visibility: visible;
 }
 
-#lightButton{
+#lightButton {
 	color: white;
 	outline: none;
 	float: right;
@@ -34,10 +35,11 @@ body {
 	right: -44px;
 }
 
-/* Header name and menu */
+
+/*Header name and menu*/
 
 
-/* Shows use of ID */
+/*Shows use of ID*/
 
 #headerTitle {
 	text-align: center;
@@ -72,13 +74,13 @@ header {
 }
 
 
-/* Shows use of class */
+/*Shows use of class*/
 
 
-/* Shows use of shadow */
+/*Shows use of shadow*/
 
 
-/* Shows use of position */
+/*Shows use of position*/
 
 .dropdown-content {
 	display: none;
@@ -97,17 +99,17 @@ header {
 }
 
 
-/* Shows use of nested */
+/*Shows use of nested*/
 
 #menuBtn:hover .dropdown-content {
 	display: block;
 }
 
 
-/* Flex container for options and map */
+/*Flex container for options and map*/
 
 
-/* Shows use of flex */
+/*Shows use of flex*/
 
 .flex-container {
 	padding-top: 80px;
@@ -129,10 +131,10 @@ header {
 }
 
 
-/* Map container */
+/*Map container*/
 
 
-/* Shows use of font size */
+/*Shows use of font size*/
 
 #mapid {
 	background-color: #f1f1f1;
@@ -171,11 +173,12 @@ header {
 a {
 	color: grey;
 	text-decoration: none;
-	/* no underline */
+	/*No underline*/
 	cursor: pointer;
 }
 
-/* Options Form Elements */
+
+/*Options form elements*/
 
 #optionForm {
 	margin: 20px;
@@ -202,12 +205,13 @@ input[type=submit] {
 	font-size: 16px;
 }
 
-input[type=submit]:hover, .favoriteBtn:hover {
+input[type=submit]:hover,
+.favoriteBtn:hover {
 	background-color: #ea4848;
 }
 
 
-/* Restuarant Menu */
+/*Restuarant menu*/
 
 #stars {
 	width: 50px;
@@ -236,7 +240,7 @@ h3 {
 }
 
 
-/* Shows use of list styling */
+/*Shows use of list styling*/
 
 #locationTagBox {
 	margin-bottom: -30px;
@@ -292,7 +296,7 @@ h3 {
 }
 
 
-/* Shows use of color */
+/*Shows use of color*/
 
 .buttonFlexCont .buttonActive {
 	background-color: lightcoral;
@@ -300,10 +304,10 @@ h3 {
 }
 
 
-/* Menu style */
+/*Menu style*/
 
 
-/* Shows use of table styling */
+/*Shows use of table styling*/
 
 #menuTable {
 	width: 96%;
@@ -327,7 +331,7 @@ h3 {
 }
 
 
-/* Shows use of text alignment */
+/*Shows use of text alignment*/
 
 #menuTable td {
 	text-align: center;
@@ -351,7 +355,7 @@ h3 {
 }
 
 
-/* Shows use of grid */
+/*Shows use of grid*/
 
 .flex-grid {
 	display: grid;
@@ -370,13 +374,13 @@ h3 {
 	width: 100%;
 	background-color: lightcoral;
 	color: white;
-	border:none;
-	cursor:pointer;
+	border: none;
+	cursor: pointer;
 	border-radius: 6px;
 }
 
 
-/* Shows use of responsive design */
+/*Shows use of responsive design*/
 
 @media screen and (max-width: 1155px) {
 	#restStars {
