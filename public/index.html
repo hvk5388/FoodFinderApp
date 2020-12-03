@@ -32,7 +32,7 @@
       <div id="searchBox">
          <h2>FoodFinder&nbsp;</h2>
          <form id="findForm" action='javascript:getAreaCode()'>
-            <input id = "zipcodeInput" type="text" placeholder="Enter zipcode..." pattern="[0-9]{5}" maxlength="5" oninvalid="this.setCustomValidity('Please enter a valid zipcode ex: 16802')" oninput="setCustomValidity('')"><input type="submit" value="Find">
+            <input id = "zipcodeInput" type="text" placeholder="Enter zipcode..." pattern="[0-9]{5}" maxlength="5" oninvalid="this.setCustomValidity('Please enter a valid zipcode ex: 16802')" oninput="setCustomValidity('')" required><input type="submit" value="Find">
          </form>
          <button id="currentLoc" onclick="getLocation()">Use current location</button>
          <p id="demo"></p>
