@@ -24,9 +24,9 @@ $(document).ready(function () {
 		color: 'red',
 		fillColor: '#f03',
 		fillOpacity: 0.5
-	}).addTo(mymap).bindPopup("Set Range");
+	}).addTo(mymap);
 
-	getRestaurant();
+	getLocationIDs();
 
 });
 
@@ -42,15 +42,14 @@ function lightMode() {
 	document.getElementById('darkButton').style.visibility = "visible";
 }
 
-/*Get restauarant using Zomato*/
+/*Get location information using Zomato*/
 /*Syntax*/
-function getRestaurant() {
-	var clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
-	var rootURL = 'https://developers.zomato.com/api/v2.1/search?';
-	var lati = parseFloat(latitude);
-	var long = parseFloat(longitude);
+function getLocationIDs() {
+	let clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
+	let rootURL = 'https://developers.zomato.com/api/v2.1/geocode?';
+	let lati = parseFloat(latitude);
+	let long = parseFloat(longitude);
 
-	/*Alert(rootURL + ' lat: ' + latitude + ' lon: ' + longitude);*/
 	/*jQuery*/
 	$.ajax({
 		type: 'GET',
@@ -62,28 +61,160 @@ function getRestaurant() {
 		/*Object use*/
 		data: {
 			lat: lati.toFixed(2),
-			lon: long.toFixed(2),
-			radius: 300
+			lon: long.toFixed(2)
 		},
 
-		success: successRestaurant
+		success: getGeocode
 	});
 }
 
-/*The function is accessing the restuarant objects attributes*/
+var entityType;
+var entityID;
+/* Get entity_type, entity_id, and city_id from get request */
+function getGeocode(data){
+	entityType = data.location.entity_type;
+	entityID = data.location.entity_id;
+	let cityID = data.location.city_id;
+	//alert("loading");
+	getCuisines(cityID);
+	getRestaurant(entityType,entityID);
+}
+
+/* Find restuarants given entity_type and entity_id */
+function getRestaurant(){
+	let clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
+	let rootURL = 'https://developers.zomato.com/api/v2.1/search?';
+	let entID = parseInt(entityID);
+		/*jQuery*/
+		$.ajax({
+			type: 'GET',
+			url: rootURL,
+			headers: {
+				"user-key": clientKey,
+				"content-type": "application/json"
+			},
+			/*Object use*/
+			data: {
+				"entity_id": entID,
+				"entity_type": entityType
+			},
+	
+			success: successRestaurant
+		});
+}
+
+/*The function is accessing the restuarant objects attributes and adding to map*/
 function successRestaurant(data) {
 	/*Multiple line comments*/
 	/*Add for loop for locations*/
-	/*var restLat = data.restaurants[1].restaurant.location.latitude;
-	var restLong = data.restaurants[1].restaurant.location.longitude;
-	var restApName = data.restaurants[1].restaurant.name;
-	document.getElementById("demo").innerHTML = data.restaurants.length + '<br>'; //Length of restuarants found
-	document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.name + '<br>'; //Get rest name
-	document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.address + '<br>'; //Get rest address
-	document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.latitude + '<br>'; //Get rest lat
-	document.getElementById("demo").innerHTML += data.restaurants[1].restaurant.location.longitude + '<br>'; //Get rest long
-	L.marker([40.792786, -77.862147]).addTo(mymap).bindPopup("<h4> Test " + restApName + "</h4>" + "<p>" + latitude + "</p>" + "<p>" + longitude + "</p>");
-	L.marker([restLat, restLong]).addTo(mymap).bindPopup("<h4>" + restApName +"</h4>");*/
+	/*Loops and arrays*/
+	for (i = 0; i < data.restaurants.length; i++) {
+		let restLat = data.restaurants[i].restaurant.location.latitude; // restuarant latitude
+		let restLong = data.restaurants[i].restaurant.location.longitude; // restuarant longitude
+		let restApName = data.restaurants[i].restaurant.name; // restuarant name
+		let restMenu = data.restaurants[i].restaurant.menu_url; // restuarant menu url
+		let restID = data.restaurants[i].restaurant.R.res_id; // restuarant ID
+		L.marker([restLat, restLong]).addTo(mymap)
+			.bindPopup("<p>" + restApName + "</p><form action='http://localhost:3000/favorite' method='POST'>" +
+				"<input type='hidden' name='id' value=" + restID + ">" +
+				"<input type='hidden' name='latitude' value=" + restLat + ">" +
+				"<input type='hidden' name='longitude' value=" + restLong + ">" +
+				"<input type='hidden' name='restuarant' value=" + restApName + ">" +
+				"<button type='submit' class='favoriteBtn'>Favorite</button></form><button class='favoriteBtn' onclick='window.location.href=`" +
+				restMenu + "`'" + "'>Menu</button>");
+	}
+}
+
+/* Get request for cuisines given city ID */
+function getCuisines(city_ID){
+	let clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
+	let rootURL = 'https://developers.zomato.com/api/v2.1/cuisines?';
+	let cityID = city_ID;
+
+		/*jQuery*/
+		$.ajax({
+			type: 'GET',
+			url: rootURL,
+			headers: {
+				"user-key": clientKey,
+				"content-type": "application/json"
+			},
+			/*Object use*/
+			data: {
+				"city_id": cityID
+			},
+	
+			success: successCuisines
+		});
+}
+
+var cuisineIDArray = [];
+/* Get cuisines to populate checkboxes */
+function successCuisines(data) {
+	for (i = 0; i < data.cuisines.length; i++) {
+		let cuisineID = data.cuisines[i].cuisine.cuisine_id;
+		let cuisineName = data.cuisines[i].cuisine.cuisine_name;
+		document.getElementById("options").innerHTML += '<hr><input type="checkbox" id="' + 
+		cuisineID + '" name=' + cuisineName + ' value="' + 
+		cuisineID + '"><label for='+ cuisineName + '>'+
+		cuisineName +'</label><br>';
+		let idString = cuisineID.toString();
+		cuisineIDArray.push(idString);
+	}
+}
+
+var searchCuisine = [];
+/* When search button is pressed after chk checkboxes, find which ones got checked */
+function checkboxIfChk(){
+	var chkArray = cuisineIDArray;
+	
+	/* Loop to add checked Chkboxes to array */
+	for (i = 0; i < chkArray.length; i++) {
+		let chkCuisine = document.getElementById(chkArray[i]);
+		if (chkCuisine.checked == true){
+			searchCuisine.push(chkArray[i]);
+		}
+	}
+
+	/* Remove all markers beside current location */
+	$(".leaflet-marker-icon").remove();
+	$(".leaflet-popup").remove();
+	$(".leaflet-pane.leaflet-shadow-pane").remove();
+	L.marker([latitude, longitude]).addTo(mymap).bindPopup("<h4>Current Location</h4>").openPopup();
+
+	getCuisineSearch(searchCuisine);
+}
+
+/* Get cuisine IDs from checkboxs from function checkboxIfChk */
+function getCuisineSearch(cuisineIDs){
+	let clientKey = 'afa7fba6d4bd0a50844c37bbac688903';
+	let rootURL = 'https://developers.zomato.com/api/v2.1/search?';
+	let entID = parseInt(entityID);
+	let cuisineList = cuisineIDs.toString();
+		//alert(typeof(entType) + " " + typeof(entID));
+		/*jQuery*/
+		$.ajax({
+			type: 'GET',
+			url: rootURL,
+			headers: {
+				"user-key": clientKey,
+				"content-type": "application/json"
+			},
+			/*Object use*/
+			data: {
+				"entity_id": entID,
+				"entity_type": entityType,
+				cuisines: cuisineList
+			},
+	
+			success: successRestaurant
+		});
+}
+
+/*The function is accessing the restuarant objects attributes and adding to map*/
+function successRestaurant(data) {
+	/*Multiple line comments*/
+	/*Add for loop for locations*/
 	/*Loops and arrays*/
 	for (i = 0; i < data.restaurants.length; i++) {
 		let restLat = data.restaurants[i].restaurant.location.latitude;

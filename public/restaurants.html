@@ -8,6 +8,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+      <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
       <script type="text/javascript" src="scripts/restaurant.js"></script>
    </head>
    <header id="MenuHeader">
@@ -30,58 +31,20 @@
    <body>
       <div class="flex-container">
          <div id="optionsContainer">
-            <form id="optionForm" action="">
+            <div id="optionForm" onsubmit="checkboxIfChk()">
                </label><b>&nbsp;Food Filter</b></label>
+               <div id="options"></div>
                <hr>
-               <input type="checkbox" id="delivery" name="delivery" value="option">
-               <label for="delivery">Delivery</label><br>
-               <hr>
-               <input type="checkbox" id="dineout" name="dineout" value="option">
-               <label for="dineout">Dine-out</label><br>
-               <hr>
-               <input type="checkbox" id="nightlife" name="nightlife" value="option">
-               <label for="nightlife">Nightlife</label><br>
-               <hr>
-               <input type="checkbox" id="catchup" name="catchup" value="option">
-               <label for="catchup">Catching-up</label><br>
-               <hr>
-               <input type="checkbox" id="takeaway" name="takeaway" value="option">
-               <label for="takeaway">Takeaway</label><br>
-               <hr>
-               <input type="checkbox" id="cafes" name="cafes" value="option">
-               <label for="cafes">Cafes</label><br>
-               <hr>
-               <input type="checkbox" id="dailymenu" name="dailymenu" value="option">
-               <label for="dailymenu">Daily Menus</label><br>
-               <hr>
-               <input type="checkbox" id="breakfast" name="breakfast" value="option">
-               <label for="breakfast">Breakfast</label><br>
-               <hr>
-               <input type="checkbox" id="lunch" name="lunch" value="option">
-               <label for="lunch">Lunch</label><br>
-               <hr>
-               <input type="checkbox" id="dinner" name="dinner" value="option">
-               <label for="dinner">Dinner</label><br>
-               <hr>
-               <input type="checkbox" id="pubsandbars" name="pubsandbars" value="option">
-               <label for="pubsandbars">Pubs & Bars</label><br>
-               <hr>
-               <input type="checkbox" id="pfd" name="pfd" value="option">
-               <label for="pfd">Pocket Friendly Delivery</label><br>
-               <hr>
-               <input type="checkbox" id="candl" name="candl" value="option">
-               <label for="candl">Clubs & Lounges</label><br>
                <br>
-               <input type="submit" value="Search">
-            </form>
+               <input type="button" value = "Search" onclick="checkboxIfChk()">
+            </div>
          </div>
-         <!--<button onclick="addMarker()">Add pin</button>-->
-         <!--<button onclick="getRestaurant()">Add pin</button>-->
-         <!--<div id="mapContainer">
-            <a href="restaurantsMenu.html" id="pinBtn"><span id="mapPin" class="material-icons">location_on</span></a>
-            <img id="map" src="images/mapScreenshot.png">-->
-         <div id="mapid"></div>
-         <!--</div>-->
+         <div id="mapid">
+            <div id="nomap">
+               <p>Oops, looks like you didn't put in an address</p><br>
+               <input type="button" value = "Back to Search" onclick="window.location.href='index.html';">
+            </div>
+         </div>
       </div>
    </body>
 </html>
