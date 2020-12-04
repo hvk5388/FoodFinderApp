@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+//const cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -19,7 +19,8 @@ app.use(express.urlencoded({
 	extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {extensions:'html'}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -31,7 +32,7 @@ app.post('/restaurants.html', (req, res) => {
 
 /*Use to store favorites, temporarily*/
 let favorites = [];
-app.use(cors());
+//app.use(cors());
 
 /*Configuring body parser middleware*/
 app.use(bodyParser.urlencoded({
@@ -74,3 +75,25 @@ app.get('/favorite/:id', (req, res) => {
 });
 
 module.exports = app;
+
+/*for hannahs form*/
+var Student = require("./models/students");
+
+app.post("/create", function(req, res) {
+
+	// Create a student from the submitted form data
+	var stu = new Student({
+	   name: req.body.name,
+	   gpa: req.body.gpa,
+	   birthDate: new Date(req.body.birthdate)
+	});
+ 
+	stu.save(function(err, stu) {
+	   if (err) {
+		  res.status(400).send(err);
+	   } 
+	   else {
+		  res.send("Student was saved.");
+	   }
+	});
+ });
