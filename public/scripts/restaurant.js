@@ -149,14 +149,14 @@ function getCuisines(city_ID){
 }
 
 var cuisineIDArray = [];
-/* Get cuisines to populate checkboxes */
+/*Get cuisines to populate checkboxes*/
 function successCuisines(data) {
 	for (i = 0; i < data.cuisines.length; i++) {
 		let cuisineID = data.cuisines[i].cuisine.cuisine_id;
 		let cuisineName = data.cuisines[i].cuisine.cuisine_name;
 		document.getElementById("options").innerHTML += '<hr><input type="checkbox" id="' + 
 		cuisineID + '" name=' + cuisineName + ' value="' + 
-		cuisineID + '"><label for='+ cuisineName + '>'+
+		cuisineID + '"><label for='+ cuisineID + '>'+
 		cuisineName +'</label><br>';
 		let idString = cuisineID.toString();
 		cuisineIDArray.push(idString);
@@ -164,11 +164,11 @@ function successCuisines(data) {
 }
 
 var searchCuisine = [];
-/* When search button is pressed after chk checkboxes, find which ones got checked */
+/*When search button is pressed after chk checkboxes, find which ones got checked*/
 function checkboxIfChk(){
 	var chkArray = cuisineIDArray;
 	
-	/* Loop to add checked Chkboxes to array */
+	/*Loop to add checked Chkboxes to array*/
 	for (i = 0; i < chkArray.length; i++) {
 		let chkCuisine = document.getElementById(chkArray[i]);
 		if (chkCuisine.checked == true){
