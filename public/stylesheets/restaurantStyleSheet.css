@@ -173,6 +173,7 @@ header {
 #map {
 	height: 100%;
 	width: 100%;
+	z-index: 1;
 }
 
 #pinBtn {
@@ -196,6 +197,16 @@ a {
 
 
 /*Options form elements*/
+
+#options [type="checkbox"]{
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+#options label{
+	padding: 10px;
+	cursor: pointer;
+}
 
 #optionForm {
 	margin: 20px;
