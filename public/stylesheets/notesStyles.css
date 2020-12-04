@@ -245,14 +245,10 @@ ul {
 }
 
 .checkbox-container {
-	padding-top: 80px;
-	width: 100%;
-}
-
-.checkbox-container {
 	width: 30%;
 	position: relative;
 	left: 35%;
+	padding-top: 80px;
 }
 
 
@@ -302,4 +298,24 @@ ul {
 
 #category {
 	text-align: left;
+}
+
+#userInput {
+	background-color: lightgray;
+	padding-bottom: 100px;
+	margin: 0;
+	text-align: center;
+	padding-top: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#inputCategory {
+	margin: 20px;;
+}
+
+#getReviews {
+	background-color: lightgray;
+	text-align: center;
+	padding-bottom: 100px;
+	font-family: 'Montserrat', sans-serif;
 }
