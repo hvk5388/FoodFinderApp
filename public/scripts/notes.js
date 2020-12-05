@@ -115,3 +115,8 @@ function lightMode() {
 	document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
 	document.getElementById('darkButton').style.visibility = "visible";
 }
+
+function getReviews() {
+	console.log("getPrograms called");
+	$.ajax
+}

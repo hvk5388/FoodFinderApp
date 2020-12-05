@@ -95,10 +95,20 @@
          </tr>
       </table>
       <form method="post" action="/create">
-         Name? <input type="text" name="name"><br>
-         GPA? <input type="text" name="gpa"><br>
-         Date of birth? <input type="date" name="birthdate"><br>
+         Restaurant <input type="text" name="restaurant"><br>
+         Food <input type="text" name="food"><br>
+         Service <input type="text" name="service"><br>
+         Food <input type="text" name="food"><br>
+         Comments <input type="text" name="comments"><br>
          <input type="submit" value="Save">
       </form>
+      <div>
+         <button id="buttons" onclick="getReviews()">Get Reviews</button>
+      </div>
+      <div>
+         <p id="tableData"></p>
+         <ol id="reviewList">
+         </ol>
+      </div>
    </body>
 </html>
