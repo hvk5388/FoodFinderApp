@@ -148,31 +148,35 @@ header {
 
 /*Dark mode*/
 
-#darkButton {
+#settingsBtn {
 	color: black;
 	outline: none;
 	float: right;
 	position: relative;
-	top: -66px;
-	padding: 10px;
+	top: -82px;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
-	z-index: 3;
-	visibility: visible;
+	-webkit-transition: -webkit-transform .4s ease-in-out;
+    -ms-transition: -ms-transform .4s ease-in-out;
+	transition: transform .4s ease-in-out; 
+	opacity: 1;
 }
 
-#lightButton {
-	color: white;
-	outline: none;
-	float: right;
-	position: relative;
-	top: -66px;
-	padding: 10px;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-	right: -44px;
+#settingsBtn:hover {
+	transform:rotate(33deg);
+    -ms-transform:rotate(33deg);
+	-webkit-transform:rotate(33deg);
+	opacity: 0.85;
+}
+
+#settingsIcon {
+	font-size: 36px;
+	padding: 20px;
+}
+
+.darkClass {
+    background-color: grey;
 }
 
 

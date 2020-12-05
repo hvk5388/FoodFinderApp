@@ -10,31 +10,35 @@ body {
 
 /*Dark mode*/
 
-#darkButton{
+#settingsBtn {
 	color: black;
 	outline: none;
 	float: right;
 	position: relative;
-	top: -66px;
-	padding: 10px;
+	top: -82px;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
-	z-index: 3;
-	visibility: visible;
+	-webkit-transition: -webkit-transform .4s ease-in-out;
+    -ms-transition: -ms-transform .4s ease-in-out;
+	transition: transform .4s ease-in-out; 
+	opacity: 1;
 }
 
-#lightButton{
-	color: white;
-	outline: none;
-	float: right;
-	position: relative;
-	top: -66px;
-	padding: 10px;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-	right: -44px;
+#settingsBtn:hover {
+	transform:rotate(33deg);
+    -ms-transform:rotate(33deg);
+	-webkit-transform:rotate(33deg);
+	opacity: 0.85;
+}
+
+#settingsIcon {
+	font-size: 36px;
+	padding: 20px;
+}
+
+.darkClass {
+    background-color: grey;
 }
 
 /*Header name and menu*/
@@ -97,7 +101,7 @@ header {
 	padding: 12px 16px;
 	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
-	z-index: 1;
+	z-index: 2;
 	cursor: default;
 	font-size: 20px;
 }
@@ -125,7 +129,7 @@ a {
 	justify-content: center;
 	width: 100%;
 	background-color: lightgray;
-	padding-top: 80px;
+	padding-top: 100px;
 }
 
 
@@ -136,17 +140,78 @@ tr {
 	line-height: 30px;
 }
 
-tr img {
-	height: 30px;
-	width: auto;
+td {
+	font-size: 20px;
 }
 
+th{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+}
+
+#errorFav input[type=button] {
+	width: 30%;
+	margin-left: 35%;
+}
+
+input[type=button] {
+	background-color: #ec5f5f;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 16px;
+}
+
+.menuBtn {
+	width: 100%;
+	background-color: lightcoral;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 6px;
+	transition: 0.3s;
+	font-size: 20px;
+	outline: none;
+}
+
+#restName {
+	display: inline;
+	font-size: 20px;
+}
+
+input[type=button]:hover,
+.menuBtn:hover {
+	background-color: #ea4848;
+}
+
+#errorFav p {
+	width: 40%;
+	margin-left: 30%;
+	word-wrap: break-word;
+	text-align: center;
+	margin-bottom: -10px;
+}
+
+#errorFav{
+	margin-top: 14%;
+	font-size: 30px;
+}
 
 /*Shows use of font size*/
 
 #heart {
-	font-size: 30px;
+	font-size: 38px;
 	color: #c44c39;
+	cursor: pointer;
+	opacity: 1;
+  	transition: 0.3s;
+}
+
+#heart:hover {
+	opacity: 0.8;
 }
 
 
@@ -170,7 +235,7 @@ tr img {
 
 /*Shows use of color*/
 
-#buttons,
+.buttons,
 input[type=submit] {
 	display: inline-block;
 	background-color: #ec5f5f;
@@ -179,25 +244,17 @@ input[type=submit] {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	width: 80px;
 	font-size: 16px;
+	margin-top: 12px;
 }
 
-#buttons:hover,
+.buttons:hover,
 input[type=submit]:hover {
 	background-color: #ea4848;
 }
 
-#name {
-	font-family: 'Montserrat', sans-serif;
+#mapid { 
+	height: 50%;
+	min-height: 500px;
+	z-index: 1; 
 }
-
-#liked {
-	font-family: 'Montserrat', sans-serif;
-}
-
-#location {
-	font-family: 'Montserrat', sans-serif;
-}
-
-#mapid { height: 300px; }

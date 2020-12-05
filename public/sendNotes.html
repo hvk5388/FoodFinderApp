@@ -5,8 +5,8 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="icon" href="images/knife_fork.png" type="image/png" sizes="32x32">
-      <script type="text/javascript" src="scripts/notes.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="scripts/notes.js"></script>
    </head>
    <header id="MenuHeader">
       <h1 id="headerTitle">Notes</h1>
@@ -22,8 +22,7 @@
             <a href="myNotes.html">Notes</a>
          </div>
       </div>
-      <button id="darkButton" onclick="darkMode()"><span class="material-icons">nights_stay</span></button>
-      <button id="lightButton" onclick="lightMode()"><span class="material-icons">nights_stay</span></button>
+      <button id="settingsBtn" onclick='window.location.href="../settings.html"'><span class="material-icons" id="settingsIcon">settings</span></button>
    </header>
    <body>
       <a href="myNotes.html" id="xButton"><span id="clearIcon" class="material-icons">clear</span></a>

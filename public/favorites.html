@@ -9,6 +9,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="icon" href="images/knife_fork.png" type="image/png" sizes="32x32">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
       <script type="text/javascript" src="scripts/favorites.js"></script>
@@ -30,73 +31,21 @@
             <a href="myNotes.html">Notes</a>
          </div>
       </div>
-      <button id="darkButton" onclick="darkMode()"><span class="material-icons">nights_stay</span></button>
-      <button id="lightButton" onclick="lightMode()"><span class="material-icons">nights_stay</span></button>
+      <button id="settingsBtn" onclick='window.location.href="../settings.html"'><span class="material-icons" id="settingsIcon">settings</span></button>
    </header>
    <!--Shows use of tags-->
    <body>
       <!--Shows use of table-->
       <!--Shows use of container-->
       <table class="favoritesTable">
-         <tr>
-            <th>Photo</th>
-            <th id="name">Name</th>
-            <th id="liked">Liked</th>
-            <th id="location">Location</th>
-         </tr>
-         <tr>
-            <!--Shows use of special character-->
-            <td><img src="images/soup.png" alt="soup"></td>
-            <td>The Corner Room&nbsp;</td>
-            <td><span id="heart" class="material-icons">favorite</span></td>
-            <td>
-               <ul id="locationTagBox">
-                  <li>100 W College Ave, State College, PA 16801</li>
-                  <li id="restTags"><span>#Lunch Specials</span><span>#Coffee & Tea</span></li>
-               </ul>
-            </td>
-            <td id="buttons" onclick="cornerRoomLocation()">Eat Here</td>
-         </tr>
-         <tr>
-            <!--Shows images-->
-            <!--Shows use of attributes-->
-            <td><img src="images/burger.png" alt="burger"></td>
-            <td>Federal Taphouse&nbsp;</td>
-            <td><span id="heart" class="material-icons">favorite</span></td>
-            <td>
-               <!--Shows use of list-->
-               <ul id="locationTagBox">
-                  <li>130 S Fraser St Suite 200, State College, PA 16801</li>
-                  <li id="restTags"><span>#Pizza</span><span>#Burgers</span></li>
-               </ul>
-            </td>
-            <td id="buttons" onclick="fedTapLocation()">Eat Here</td>
-         </tr>
-         <tr>
-            <td><img src="images/fries.png" alt="fries"></td>
-            <td>Are U Hungry&nbsp;</td>
-            <td><span id="heart" class="material-icons">favorite</span></td>
-            <td>
-               <ul id="locationTagBox">
-                  <li>111 Sowers St, State College, PA 16801</li>
-                  <li id="restTags"><span>#American</span><span>#Chicken</span></li>
-               </ul>
-            </td>
-            <td id="buttons" onclick="areULocation()">Eat Here</td>
-         </tr>
-         <tr>
-            <td><img src="images/sub.png" alt="sub"></td>
-            <td>Jersey Mike's Subs&nbsp;</td>
-            <td><span id="heart" class="material-icons">favorite</span></td>
-            <td>
-               <ul id="locationTagBox">
-                  <li>128 S Allen St, State College, PA 16801</li>
-                  <li id="restTags"><span>#American</span><span>#Fast Food</span></li>
-               </ul>
-            </td>
-            <td id="buttons" onclick="jerseyMikeLocation()">Eat Here</td>
-         </tr>
+         <tbody id="AddedFavorites">
+            <!-- Populates favorites from js -->
+         </tbody>
       </table>
+      <div id="errorFav">
+         <p>Oops, looks like you didn't add a favorite!</p><br>
+         <input type="button" value = "Back to Restaurants Map" onclick="window.location.href='restaurants.html';">
+      </div>
       <div id="mapid"></div>
    </body>
 </html>
