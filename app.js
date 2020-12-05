@@ -77,7 +77,7 @@ app.get('/favorite/:id', (req, res) => {
 module.exports = app;
 
 /*for hannahs form*/
-var Student = require("./models/students");
+var Student = require("./models/reviews");
 
 app.post("/create", function(req, res) {
 
