@@ -2,45 +2,57 @@
 /*Client side javascript*/
 var latitude = parseFloat(sessionStorage.getItem("latitude"));
 var longitude = parseFloat(sessionStorage.getItem("longitude"));
-var restName = "restuarantname"; /*Example name used for favorite api in progress*/
-var restID = 12; /*Example ID used for favorite api in progress*/
 var mymap;
 
+/* Initialize map and get location ID info */
 $(document).ready(function () {
+	/*CSS DOM manipulation*/
+	/*Functions*/
+	/* Set dark mode class and store value */
+	var dark = localStorage.getItem('dark');
+    if (dark) 
+  	    $('header').addClass(dark);
+        $(".darkmode").click(function() {
+        	$("header").addClass("darkClass");
+        	localStorage.setItem('dark', 'darkClass');
+    });
 
-	mymap = L.map('mapid').setView([latitude, longitude], 12);
+    $(".normalmode").click(function() {
+    	$("header").removeClass("darkClass");
+    	localStorage.setItem('dark', null);
+	});
 
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'FoodFinder',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
-	}).addTo(mymap);
+	/* Check if latitude and longitude values have been passed */
+	/* if user has skipped location from home screen appear error to go back */
+	if(isNaN(latitude) || isNaN(longitude)){
+		$('#nomap').append("<p>Oops, looks like you didn't put in an address!</p><br>" +
+		"<input type='button' value = 'Back to Search' onclick='window.location.href=`index.html`'>");
+	}
+	else{
+		$('#nomap').remove();
 
-	L.marker([latitude, longitude]).addTo(mymap).bindPopup("<h4>Current Location</h4>").openPopup();
+		mymap = L.map('mapid').setView([latitude, longitude], 12);
 
-	L.circle([latitude, longitude], 9000, {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5
-	}).addTo(mymap);
+		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+			maxZoom: 18,
+			attribution: 'FoodFinder',
+			id: 'mapbox/streets-v11',
+			tileSize: 512,
+			zoomOffset: -1
+		}).addTo(mymap);
 
-	getLocationIDs();
+		L.marker([latitude, longitude]).addTo(mymap).bindPopup("<h4>Current Location</h4>").openPopup();
+
+		L.circle([latitude, longitude], 9000, {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5
+		}).addTo(mymap);
+
+		getLocationIDs();
+}
 
 });
-
-/*CSS DOM manipulation*/
-/*Functions*/
-function darkMode() {
-	document.getElementById('MenuHeader').style.backgroundColor = "grey";
-	document.getElementById('darkButton').style.visibility = "hidden";
-}
-
-function lightMode() {
-	document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
-	document.getElementById('darkButton').style.visibility = "visible";
-}
 
 /*Get location information using Zomato*/
 /*Syntax*/
@@ -77,7 +89,7 @@ function getGeocode(data){
 	let cityID = data.location.city_id;
 	//alert("loading");
 	getCuisines(cityID);
-	getRestaurant(entityType,entityID);
+	getRestaurant();
 }
 
 /* Find restuarants given entity_type and entity_id */
@@ -101,28 +113,6 @@ function getRestaurant(){
 	
 			success: successRestaurant
 		});
-}
-
-/*The function is accessing the restuarant objects attributes and adding to map*/
-function successRestaurant(data) {
-	/*Multiple line comments*/
-	/*Add for loop for locations*/
-	/*Loops and arrays*/
-	for (i = 0; i < data.restaurants.length; i++) {
-		let restLat = data.restaurants[i].restaurant.location.latitude; // restuarant latitude
-		let restLong = data.restaurants[i].restaurant.location.longitude; // restuarant longitude
-		let restApName = data.restaurants[i].restaurant.name; // restuarant name
-		let restMenu = data.restaurants[i].restaurant.menu_url; // restuarant menu url
-		let restID = data.restaurants[i].restaurant.R.res_id; // restuarant ID
-		L.marker([restLat, restLong]).addTo(mymap)
-			.bindPopup("<p>" + restApName + "</p><form action='http://localhost:3000/favorite' method='POST'>" +
-				"<input type='hidden' name='id' value=" + restID + ">" +
-				"<input type='hidden' name='latitude' value=" + restLat + ">" +
-				"<input type='hidden' name='longitude' value=" + restLong + ">" +
-				"<input type='hidden' name='restuarant' value=" + restApName + ">" +
-				"<button type='submit' class='favoriteBtn'>Favorite</button></form><button class='favoriteBtn' onclick='window.location.href=`" +
-				restMenu + "`'" + "'>Menu</button>");
-	}
 }
 
 /* Get request for cuisines given city ID */
@@ -191,7 +181,7 @@ function getCuisineSearch(cuisineIDs){
 	let rootURL = 'https://developers.zomato.com/api/v2.1/search?';
 	let entID = parseInt(entityID);
 	let cuisineList = cuisineIDs.toString();
-		//alert(typeof(entType) + " " + typeof(entID));
+	
 		/*jQuery*/
 		$.ajax({
 			type: 'GET',
@@ -222,13 +212,18 @@ function successRestaurant(data) {
 		let restApName = data.restaurants[i].restaurant.name;
 		let restMenu = data.restaurants[i].restaurant.menu_url;
 		let restID = data.restaurants[i].restaurant.R.res_id;
+		let restAddress = data.restaurants[i].restaurant.location.address;
+		
 		L.marker([restLat, restLong]).addTo(mymap)
-			.bindPopup("<p>" + restApName + "</p><form action='http://localhost:3000/favorite' method='POST'>" +
-				"<input type='hidden' name='id' value=" + restID + ">" +
-				"<input type='hidden' name='latitude' value=" + restLat + ">" +
-				"<input type='hidden' name='longitude' value=" + restLong + ">" +
-				"<input type='hidden' name='restuarant' value=" + restApName + ">" +
-				"<button type='submit' class='favoriteBtn'>Favorite</button></form><button class='favoriteBtn' onclick='window.location.href=`" +
-				restMenu + "`'" + "'>Menu</button>");
+			.bindPopup("<p id='restName'>" + restApName + "<form action='../favorite' method='POST'><button type='submit' id='heart'>" +
+				"<span class='material-icons'>favorite</span></p>" +
+				"<input type='hidden' name='id' value='" + restID + "'>" +
+				"<input type='hidden' name='latitude' value='" + restLat + "'>" +
+				"<input type='hidden' name='longitude' value='" + restLong + "'>" +
+				`<input type='hidden' name='restuarant' value="` + restApName + `">` +
+				"<input type='hidden' name='address' value='" + restAddress + "'>" +
+				"<input type='hidden' name='menu' value='" + restMenu + "'>" +
+				"</form><button class='menuBtn' onclick='window.location.href=`" +
+				restMenu + "`'" + ">Menu</button>");
 	}
 }

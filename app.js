@@ -32,7 +32,6 @@ app.post('/restaurants.html', (req, res) => {
 
 /*Use to store favorites, temporarily*/
 let favorites = [];
-//app.use(cors());
 
 /*Configuring body parser middleware*/
 app.use(bodyParser.urlencoded({
@@ -53,25 +52,41 @@ app.post('/favorite', (req, res) => {
 });
 
 /*Get all favorites API*/
-app.get('/favorites', (req, res) => {
+app.get('/RestFavorites', (req, res) => {
 	res.json(favorites);
 });
 
 /*Return favorite ID using link*/
 app.get('/favorite/:id', (req, res) => {
-	// Reading isbn from the URL
+	/* Reading id from the URL */
 	const id = req.params.id;
 
 	/*Searching favorties*/
 	for (let favorite of favorites) {
 		if (favorite.id === id) {
-			res.json(id);
+			res.json(favorite);
 			return;
 		}
 	}
 
 	/*Sending 404 when not found something*/
 	res.status(404).send('Not found');
+});
+
+/*Delete favorite given ID using link*/
+app.delete('/favorite/:id', (req, res) => {
+	/* Reading id from the URL */
+	const id = req.params.id;
+
+	 /*Searching favorties to remove item from array*/
+	 favorites = favorites.filter(i => {
+        if (i.id !== id) {
+            return true;
+        }
+        return false;
+	});
+
+	res.send('Deleting favorite...');
 });
 
 module.exports = app;

@@ -2,19 +2,8 @@ html,
 body {
 	height: 100%;
 	margin: 0;
-	font-family: 'Montserrat', sans-serif;
-	background-color: #e6e6e6;
-}
-
-#demo {
-	visibility: hidden;
-}
-
-#loadingImg {
-	visibility: hidden;
-	position: fixed;
-	width: 10%;
-	margin-left: 45%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e6e6e6;
 }
 
 
@@ -25,7 +14,8 @@ body {
 	outline: none;
 	float: right;
 	position: relative;
-	top: -82px;
+	top: -93px;
+	right: -14px;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
@@ -47,8 +37,15 @@ body {
 	padding: 20px;
 }
 
-.darkClass {
-    background-color: grey;
+.darkClass{
+	background-color: grey;
+}
+
+a {
+	color: grey;
+	text-decoration: none;
+	/*No underline*/
+	cursor: pointer;
 }
 
 /*Header name and menu*/
@@ -120,18 +117,7 @@ header {
 	display: block;
 }
 
-h2 {
-	font-size: 70px;
-}
-
-a {
-	color: grey;
-	text-decoration: none;
-	/*No underline*/
-	cursor: pointer;
-}
-
-#searchBox {
+#darkModeSel {
 	position: relative;
 	width: 70%;
 	margin-left: 15%;
@@ -139,52 +125,29 @@ a {
 	top: 22%;
 }
 
-input[type=submit] {
-	background-color: #ec5f5f;
+button {
+    background-color: #ec5f5f;
 	color: white;
-	padding: 11px 18px;
+	padding: 12px 20px;
 	border: none;
-	border-radius: 10px;
+	border-radius: 4px;
 	cursor: pointer;
-	width: 90px;
-	font-size: 18px;
-	margin-left: 10px;
-	font-weight: bold;
+    font-size: 16px;
+    outline: none;
 }
 
-#currentLoc {
-	background-color: #ec5f5f;
-	color: white;
-	padding: 11px 18px;
-	border: none;
-	border-radius: 10px;
-	cursor: pointer;
-	width: 70%;
-	max-width: 500px;
-	font-size: 18px;
+button:nth-child(2){
+    background-color: grey;
+    color: black;
 }
 
-input[type=submit]:hover,
-#currentLoc:hover {
-	background-color: #ea4848;
+button:nth-child(2):hover{
+    background-color: #999999;
+}
+button:hover{
+    background-color: lightcoral;
 }
 
-input[type="text"] {
-	font-size: 20px;
-	padding: 8px;
-	border-radius: 10px;
-	outline: none;
-	border: 2px solid grey;
-	position: relative;
-	top: 1px;
-	width: 50%;
-	max-width: 400px;
-}
-
-input[type="text"]:focus {
-	background-color: #f7f9fc;
-}
-
-#findForm {
-	width: 100%;
+h2 {
+    font-size: 40px;
 }

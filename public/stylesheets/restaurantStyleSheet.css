@@ -8,31 +8,35 @@ body {
 
 /*Dark mode*/
 
-#darkButton {
+#settingsBtn {
 	color: black;
 	outline: none;
 	float: right;
 	position: relative;
-	top: -66px;
-	padding: 10px;
+	top: -82px;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
-	z-index: 3;
-	visibility: visible;
+	-webkit-transition: -webkit-transform .4s ease-in-out;
+    -ms-transition: -ms-transform .4s ease-in-out;
+	transition: transform .4s ease-in-out; 
+	opacity: 1;
 }
 
-#lightButton {
-	color: white;
-	outline: none;
-	float: right;
-	position: relative;
-	top: -66px;
-	padding: 10px;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-	right: -44px;
+#settingsBtn:hover {
+	transform:rotate(33deg);
+    -ms-transform:rotate(33deg);
+	-webkit-transform:rotate(33deg);
+	opacity: 0.85;
+}
+
+#settingsIcon {
+	font-size: 36px;
+	padding: 20px;
+}
+
+.darkClass {
+    background-color: grey;
 }
 
 
@@ -66,6 +70,7 @@ header {
 	cursor: pointer;
 	top: 0px;
 	left: 5px;
+	outline: none;
 }
 
 #menuIcon {
@@ -139,6 +144,7 @@ header {
 #nomap input[type=button] {
 	width: 30%;
 	margin-left: 35%;
+	outline: none;
 }
 
 #nomap p {
@@ -174,14 +180,6 @@ header {
 	height: 100%;
 	width: 100%;
 	z-index: 1;
-}
-
-#pinBtn {
-	color: red;
-	z-index: 1;
-	position: absolute;
-	right: 445px;
-	top: 310px;
 }
 
 #mapPin {
@@ -231,36 +229,10 @@ input[type=button] {
 	cursor: pointer;
 	width: 100%;
 	font-size: 16px;
+	outline: none;
 }
 
-input[type=button]:hover,
-.favoriteBtn:hover {
-	background-color: #ea4848;
-}
-
-
-/*Restuarant menu*/
-
-#stars {
-	width: 50px;
-	display: inline-block;
-}
-
-#restStars {
-	float: right;
-	position: relative;
-	margin-right: 60px;
-	float: right;
-}
-
-#xButton {
-	float: right;
-	padding: 20px;
-}
-
-#clearIcon {
-	font-size: 28px;
-}
+/*Restaurant menu*/
 
 h2,
 h3 {
@@ -371,15 +343,16 @@ h3 {
 	hyphens: auto;
 }
 
-#favoriteBtn {
+#menuBtn {
 	border: none;
 	background: transparent;
 	outline: none;
 	cursor: pointer;
+	outline: none;
 }
 
 #heartIcon {
-	font-size: 30px;
+	font-size: 36px;
 }
 
 
@@ -398,13 +371,45 @@ h3 {
 	height: 80px;
 }
 
-.favoriteBtn {
+#heart{
+	text-shadow: 0 0 3px #7c7979, 0 0 5px #6a6a6d;
+	background-color: transparent;
+	color: white;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	transition: 0.3s;
+	float: right;
+}
+
+#restName{
+	display: inline;
+}
+
+form{
+	display: inline;
+}
+
+#heart:hover{
+	color: red;
+	opacity: 0.6;
+}
+
+.menuBtn {
 	width: 100%;
 	background-color: lightcoral;
 	color: white;
 	border: none;
 	cursor: pointer;
 	border-radius: 6px;
+	transition: 0.3s;
+	font-size: 20px;
+	outline: none;
+}
+
+input[type=button]:hover,
+.menuBtn:hover {
+	background-color: #ea4848;
 }
 
 
