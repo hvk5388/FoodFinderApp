@@ -1,19 +1,92 @@
-function darkMode() {
-	document.getElementById('MenuHeader').style.backgroundColor = "grey";
-	document.getElementById('darkButton').style.visibility = "hidden";
+
+$(document).ready(function () {
+	/* Set dark mode class and store value */
+	var dark = localStorage.getItem('dark');
+    if (dark) 
+  	    $('header').addClass(dark);
+        $(".darkmode").click(function() {
+        $("header").addClass("darkClass");
+        localStorage.setItem('dark', 'darkClass');
+    });
+
+    $(".normalmode").click(function() {
+    $("header").removeClass("darkClass");
+    localStorage.setItem('dark', null);
+    });
+	
+	getFavorites();
+	
+});
+
+/* Get favorite restuarants from array in /RestFavorites */
+function getFavorites() {
+	let rootURL = '../RestFavorites';
+
+	/*jQuery*/
+	$.ajax({
+		type: 'GET',
+		url: rootURL,
+
+		success: getFav
+	});
 }
 
-function lightMode() {
-	document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
-	document.getElementById('darkButton').style.visibility = "visible";
+/* Populate favorites table */
+function getFav(data) {
+
+	if(data.length != 0){
+		$('#errorFav').remove();
+		document.getElementById("AddedFavorites").innerHTML = "<tr><th>Restaurant Name</th><th>Liked</th><th>Location</th></tr>";	
+	}
+	
+	for (i = 0; i < data.length; i++) {
+		let lati = data[i].latitude;
+		let long = data[i].longitude;
+		let name = data[i].restuarant;
+		let menu = data[i].menu;
+		let address = data[i].address;
+		let id = data[i].id;
+	
+		document.getElementById("AddedFavorites").innerHTML += 
+        "<td>" + name + "</td>" +
+        '<td><span id="heart" class="material-icons" onclick="delFavorite(\'' + id + '\')">favorite</span></form></td>' +
+        "<td><ul id='locationTagBox'><li>" + address + "</li></ul></td>" +
+		'<td class="buttons" onclick="showRestuarant(\'' + lati + '\',\'' + long + '\',\'' + name + '\',\'' + menu + '\')">Eat Here</td></tr>';
+	}
+	
 }
 
-function cornerRoomLocation() {
+/* delete favorite given id */
+function delFavorite(restID){
+	let id = parseInt(restID);
+	let rootURL = '../favorite/' + id;
 
-	var mymap = L.map('mapid').setView([40.794267, -77.861607], 13);
+	/*jQuery*/
+	$.ajax({
+		type: 'DELETE',
+		url: rootURL,
+
+		success: delFav
+	});
+}
+
+function delFav(data){
+	alert(data);
+	location.reload();
+}
+
+var mymap;
+/* Show restuarant and view point on map */
+function showRestuarant(lat,lon,restName,restMenu){
+	/* if the map is already initialized clear it */
+	if (mymap != undefined){
+		mymap.off();
+		mymap.remove();
+	}
+	mymap = L.map('mapid').setView([lat, lon], 13);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		attribution: 'LeafLet',
 		maxZoom: 18,
 		id: 'mapbox/streets-v11',
 		tileSize: 512,
@@ -21,59 +94,8 @@ function cornerRoomLocation() {
 		accessToken: 'pk.eyJ1Ijoicnlhbm1jZ2x5bm43IiwiYSI6ImNraG05bDQyZDA0ZmEzMW43eHY5MDZ2eHUifQ.2dATeQ55OR1xR3QooQTdYQ'
 	}).addTo(mymap);
 
-	var marker = L.marker([40.794267, -77.861607]).addTo(mymap).bindPopup("<b>The Corner Room</b><br>Eat Here.").openPopup();
-}
-
-
-function fedTapLocation() {
-
-	var mymap = L.map('mapid').setView([40.792786, -77.862147], 13);
-
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		maxZoom: 18,
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1,
-		accessToken: 'pk.eyJ1Ijoicnlhbm1jZ2x5bm43IiwiYSI6ImNraG05bDQyZDA0ZmEzMW43eHY5MDZ2eHUifQ.2dATeQ55OR1xR3QooQTdYQ'
-	}).addTo(mymap);
-
-	var marker = L.marker([40.792786, -77.862147]).addTo(mymap).bindPopup("<b>Federal Taphouse</b><br>Eat Here.").openPopup();
+	L.marker([lat, lon]).addTo(mymap).bindPopup("<p id='restName'>" + restName + "</p><br><button class= 'menuBtn' onclick='window.location.href=`" +
+	restMenu + "`'" + "'>Menu</button>").openPopup();
 
 }
 
-
-function areULocation() {
-
-	var mymap = L.map('mapid').setView([40.798170, -77.855532], 13);
-
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		maxZoom: 18,
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1,
-		accessToken: 'pk.eyJ1Ijoicnlhbm1jZ2x5bm43IiwiYSI6ImNraG05bDQyZDA0ZmEzMW43eHY5MDZ2eHUifQ.2dATeQ55OR1xR3QooQTdYQ'
-	}).addTo(mymap);
-
-	var marker = L.marker([40.798170, -77.855532]).addTo(mymap).bindPopup("<b>Are U Hungry</b><br>Eat Here.").openPopup();
-
-}
-
-
-function jerseyMikeLocation() {
-
-	var mymap = L.map('mapid').setView([40.793763, -77.860948], 13);
-
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		maxZoom: 18,
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1,
-		accessToken: 'pk.eyJ1Ijoicnlhbm1jZ2x5bm43IiwiYSI6ImNraG05bDQyZDA0ZmEzMW43eHY5MDZ2eHUifQ.2dATeQ55OR1xR3QooQTdYQ'
-	}).addTo(mymap);
-
-	var marker = L.marker([40.793763, -77.860948]).addTo(mymap).bindPopup("<b>Jersey Mike's Subs</b><br>Eat Here.").openPopup();
-
-}
