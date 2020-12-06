@@ -196,8 +196,9 @@ input[type=button]:hover,
 }
 
 #errorFav{
-	margin-top: 14%;
+	margin-top: 200px;
 	font-size: 30px;
+	margin-bottom: -500px;
 }
 
 /*Shows use of font size*/
