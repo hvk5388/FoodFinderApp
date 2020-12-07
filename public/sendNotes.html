@@ -69,35 +69,28 @@
             <td></td>
             <td>
                <div class="checkbox-container">
-                  <form id="optionForm"></form>
                   </label><b>Send to Reviewer to be Posted:</b></label> 
-                  <br>I will forward you the email when recieved
+                  <br>For food, service, and price use a number 1 through 5
                   <br>Please return to this page once message is sent
                   <hr>
-                  </form>
-                  <form action="https://postmail.invotes.com/send" method="post" id="email_form">
-                     Name:<br>
-                     <input type="text" name="name" placeholder="Name"><br>
-                     Subject:<br>
-                     <input type="text" name="subject" placeholder="Subject"><br>
-                     Message:<br>
-                     <textarea name="text" placeholder="Message"></textarea><br>
-                     <br>
-                     <input type="submit" value="Send" id="js_send" name="send">
-                     <input type="hidden" name="access_token" value="9vtj4szaxzb00w5vzgsycvsy" />
-                     <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
-                     <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-                  </form>
                </div>
             </td>
             <td width="60px">&nbsp;</td>
          </tr>
       </table>
-      <form method="post" action="/create">
-         Name? <input type="text" name="name"><br>
-         GPA? <input type="text" name="gpa"><br>
-         Date of birth? <input type="date" name="birthdate"><br>
-         <input type="submit" value="Save">
+      <form method="post" action="/create" id="userInput">
+         Restaurant <input type="text" name="restaurants" id="inputCategory"><br>
+         Food <input type="text" name="food" id="inputCategory"><br>
+         Service <input type="text" name="service" id="inputCategory"><br>
+         Price <input type="text" name="price" id="inputCategory"><br>
+         Comments <input type="text" name="comments" id="inputCategory"><br>
+         <input type="submit" value="Send" id="inputCategory">
       </form>
+      <div id="getReviews">
+         <button onClick="getReviews()" id="buttons">Get Reviews</button>
+         <p id="tableData">Here is the review:</p>
+         <ol id="reviewList">
+         </ol>
+      </div>
    </body>
 </html>

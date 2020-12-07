@@ -91,24 +91,24 @@ app.delete('/favorite/:id', (req, res) => {
 
 module.exports = app;
 
-/*for hannahs form*/
-var Student = require("./models/students");
+
+//hannah's work
+
+var Review = require("./models/reviews");
 
 app.post("/create", function(req, res) {
 
 	// Create a student from the submitted form data
-	var stu = new Student({
-	   name: req.body.name,
-	   gpa: req.body.gpa,
-	   birthDate: new Date(req.body.birthdate)
-	});
+	var rev = new Review(req.body);
  
-	stu.save(function(err, stu) {
+	rev.save(function(err, rev) {
 	   if (err) {
 		  res.status(400).send(err);
 	   } 
 	   else {
-		  res.send("Student was saved.");
+		  res.send("Review was saved.");
 	   }
 	});
  });
+
+ module.exports = app;

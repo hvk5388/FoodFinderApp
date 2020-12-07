@@ -109,5 +109,45 @@ setTimeout(function () {
   submitButton.disabled = true;
 }, 1);
 });
+
 /*This is a reference*/
+/*Recieved help from https://postmail.invotes.com*/
+
+function darkMode() {
+	let highlightedItems = document.querySelectorAll("#flexbuttons");
+
+	highlightedItems.forEach(function (userItem) {
+		userItem.style.backgroundColor = "lightgray";
+	});
+	document.getElementById('MenuHeader').style.backgroundColor = "grey";
+	document.getElementById('darkButton').style.visibility = "hidden";
+	/*Multiple line comments*/
+	/*document.getElementById("restaurants").style.backgroundColor = "black";
+	document.getElementById("restaurants").style.color = "white";*/
+}
+
+function lightMode() {
+	let highlightedItems = document.querySelectorAll("#flexbuttons");
+	highlightedItems.forEach(function (userItem) {
+		userItem.style.backgroundColor = "lightgray";
+	});
+	document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
+	document.getElementById('darkButton').style.visibility = "visible";
+}
+
+function getReviews() {
+	console.log("getReviews called");
+	$ajax({
+		method: 'GET',
+		url:'/reviews',
+		sucess: (data) =>{
+			console.log(data);
+			data.forEach(function (arrayItem) {
+				var item = arrayItem.nsme;
+				console.log("array item anem: " + item);
+				$("reviewList").append("<li>" + item + "</li>");
+			});
+		}
+	});
+}
 /*Recieved help from https://postmail.invotes.com*/
