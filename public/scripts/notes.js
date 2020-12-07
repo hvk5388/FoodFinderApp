@@ -136,18 +136,17 @@ function lightMode() {
 }
 
 function getReviews() {
-	console.log("getReviews called");
-	$ajax({
+  	$ajax({
 		method: 'GET',
-		url:'/reviews',
-		sucess: (data) =>{
+		url:'/programs',
+		success: (data) =>{
 			console.log(data);
 			data.forEach(function (arrayItem) {
-				var item = arrayItem.nsme;
-				console.log("array item anem: " + item);
-				$("reviewList").append("<li>" + item + "</li>");
+				var item = arrayItem.restaurant;
+				console.log("array item name: " + item);
+				$("#reviewList").append("<li>" + item + "</li>");
 			});
 		}
-	});
+  });
 }
 /*Recieved help from https://postmail.invotes.com*/
