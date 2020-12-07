@@ -4,15 +4,6 @@ var Review = require("../models/reviews");
 exports.create = (req, res) => {
     console.log("create was called");
 
-<<<<<<< HEAD
-    // if(!req.body.restaurant || !req.body.food || !req.body.service || !req.body.price || !req.body.comments) {
-    //     return res.status(400).send({
-    //         message: "Required field can not be empty",
-    //     });
-    // }
-
-=======
->>>>>>> 94d3970335aab504253350e1ccc0aad9f2e9319d
     	// Create a student from the submitted form data
 	var rev = new Review({
         restaurant: req.body.restaurant,

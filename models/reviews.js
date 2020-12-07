@@ -2,7 +2,6 @@
 var db = require("../db");
 
 var Review = db.model("Review", {
-<<<<<<< HEAD
     restaurant: String,
     food: { type: Number, min: 0, max: 5 },
     service: {type: Number, min: 0, max: 5 },
@@ -53,13 +52,3 @@ module.exports = Review;
 // );
 
 // module.exports = mongoose.model("review", schema);
-=======
-    restaurant:    String,
-    food:          { type: Number, min: 0, max: 5 },
-    service:       { type: Number, min: 0, max: 5 },
-    price:         { type: Number, min: 0, max: 5 },
-    comments:      [ String ]
-});
-
-module.exports = Review;
->>>>>>> 94d3970335aab504253350e1ccc0aad9f2e9319d
