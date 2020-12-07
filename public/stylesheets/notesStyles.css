@@ -316,3 +316,10 @@ ul {
 #inputCategory {
 	margin: 20px;;
 }
+
+#getReviews {
+	background-color: lightgray;
+	text-align: center;
+	padding-bottom: 100px;
+	font-family: 'Montserrat', sans-serif;
+}
