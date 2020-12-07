@@ -134,19 +134,4 @@ function lightMode() {
 	document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
 	document.getElementById('darkButton').style.visibility = "visible";
 }
-
-function getReviews() {
-  	$ajax({
-		method: 'GET',
-		url:'/programs',
-		success: (data) =>{
-			console.log(data);
-			data.forEach(function (arrayItem) {
-				var item = arrayItem.restaurant;
-				console.log("array item name: " + item);
-				$("#reviewList").append("<li>" + item + "</li>");
-			});
-		}
-  });
-}
 /*Recieved help from https://postmail.invotes.com*/
