@@ -134,4 +134,20 @@ function lightMode() {
 	document.getElementById('MenuHeader').style.backgroundColor = "lightcoral";
 	document.getElementById('darkButton').style.visibility = "visible";
 }
+
+function getReviews() {
+	console.log("getReviews called");
+	$ajax({
+		method: 'GET',
+		url:'/reviews',
+		sucess: (data) =>{
+			console.log(data);
+			data.forEach(function (arrayItem) {
+				var item = arrayItem.nsme;
+				console.log("array item anem: " + item);
+				$("reviewList").append("<li>" + item + "</li>");
+			});
+		}
+	});
+}
 /*Recieved help from https://postmail.invotes.com*/
